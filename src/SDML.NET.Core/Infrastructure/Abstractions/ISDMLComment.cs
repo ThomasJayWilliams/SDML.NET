@@ -1,6 +1,6 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Abstractions
 {
-	public interface ISDMLComment
+	public interface ISDMLComment : ISDMLObject
 	{
 
 	}

@@ -1,7 +1,7 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Abstractions
 {
-	public interface ISDMLValue
+	public interface ISDMLValue : ISDMLObject
 	{
-
+        
 	}
 }

@@ -2,7 +2,7 @@
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-	public interface ISDMLSolution : ISDMLDataElement
+	public interface ISDMLDocument : ISDMLDataElement
 	{
 
 	}

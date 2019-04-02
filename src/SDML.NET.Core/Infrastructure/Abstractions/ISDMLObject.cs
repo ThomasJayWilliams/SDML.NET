@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
-
-namespace SDML.NET.Core.Infrastructure.Abstractions
+﻿namespace SDML.NET.Core.Infrastructure.Abstractions
 {
-	public interface ISDMLObject
+    public interface ISDMLObject
 	{
-		ISDMLObject Parent { get; set; }
-		IDictionary<string, ISDMLObject> Childs { get; set; }
+        string ObjectName { get; }
 		string Name { get; set; }
 	}
 }
