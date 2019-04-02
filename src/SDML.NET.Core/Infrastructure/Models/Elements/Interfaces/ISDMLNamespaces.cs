@@ -2,7 +2,7 @@
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-    public interface ISDMLStructure : ISDMLDataElement
+    public interface ISDMLNamespaces : ISDMLDataElement
     {
 
     }

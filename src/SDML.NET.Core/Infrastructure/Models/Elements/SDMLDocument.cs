@@ -1,6 +1,6 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
 
-namespace SDML.NET.Core.Infrastructure.Models.Documents
+namespace SDML.NET.Core.Infrastructure.Models
 {
     public class SDMLDocument : ISDMLDocument
     {

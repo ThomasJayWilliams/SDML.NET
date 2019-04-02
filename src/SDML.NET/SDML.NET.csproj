@@ -16,4 +16,8 @@
     <ProjectReference Include="..\SDML.NET.Core\SDML.NET.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Attributes\" />
+  </ItemGroup>
+
 </Project>
