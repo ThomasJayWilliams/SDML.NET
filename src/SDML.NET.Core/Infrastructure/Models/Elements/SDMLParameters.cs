@@ -6,7 +6,7 @@ namespace SDML.NET.Core.Infrastructure.Models
     {
         public bool HasBody { get; }
         public string ObjectName { get; } = "Parameters";
-        public string Name { get; set; }
+        public string ElementName { get; set; }
 
         public void AddAttribute(ISDMLAttribute attribute)
         {

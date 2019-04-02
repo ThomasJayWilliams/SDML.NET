@@ -4,31 +4,31 @@ using System.Collections.Generic;
 
 namespace SDML.NET.Core.Structures
 {
-    public class SDMLTree : ISDMLTree<ISDMLObject>
+    public class SDMLTree : ISDMLTree<ISDMLDataElement>
     {
-        private ISDMLNode<ISDMLObject> root;
-        private Dictionary<string, ISDMLNode<ISDMLObject>> nodes;
+        private ISDMLNode<ISDMLDataElement> root;
+        private Dictionary<string, ISDMLNode<ISDMLDataElement>> nodes;
 
-        public ISDMLNode<ISDMLObject> Root { get => root; }
-        public Dictionary<string, ISDMLNode<ISDMLObject>> Nodes { get => nodes; }
+        public ISDMLNode<ISDMLDataElement> Root { get => root; }
+        public Dictionary<string, ISDMLNode<ISDMLDataElement>> Nodes { get => nodes; }
 
-        private SDMLTree(ISDMLNode<ISDMLObject> root)
+        private SDMLTree(ISDMLNode<ISDMLDataElement> root)
         {
-            nodes = new Dictionary<string, ISDMLNode<ISDMLObject>>();
-            nodes.Add(root.Data.Name, root);
+            nodes = new Dictionary<string, ISDMLNode<ISDMLDataElement>>();
+            nodes.Add(root.Data.ElementName, root);
         }
 
-        public SDMLTree(ISDMLObject root) : this(new SDMLNode(root)) { }
+        public SDMLTree(ISDMLDataElement root) : this(new SDMLNode(root)) { }
 
-        public void AddNode(ISDMLNode<ISDMLObject> node)
+        public void AddNode(ISDMLNode<ISDMLDataElement> node)
         {
             if (node != null)
-                nodes.Add(node.Data.Name, node);
+                nodes.Add(node.Data.ElementName, node);
         }
 
-        public void RemoveNode(ISDMLObject node) => RemoveNode(node?.Name);
+        public void RemoveNode(ISDMLDataElement node) => RemoveNode(node?.ElementName);
 
-        public void RemoveNode(ISDMLNode<ISDMLObject> node) => RemoveNode(node?.Data?.Name);
+        public void RemoveNode(ISDMLNode<ISDMLDataElement> node) => RemoveNode(node?.Data?.ElementName);
 
         public void RemoveNode(string name)
         {
@@ -36,25 +36,25 @@ namespace SDML.NET.Core.Structures
                 nodes.Remove(name);
         }
 
-        public ISDMLNode<ISDMLObject> GetNode(string name)
+        public ISDMLNode<ISDMLDataElement> GetNode(string name)
         {
             if (!string.IsNullOrEmpty(name))
                 return nodes[name];
             throw new InvalidNodeException("Invalid node identifier!");
         }
 
-        public ISDMLNode<ISDMLObject> GetNode(ISDMLObject data) => GetNode(data?.Name);
+        public ISDMLNode<ISDMLDataElement> GetNode(ISDMLDataElement data) => GetNode(data?.ElementName);
     }
 
-    public class SDMLNode : ISDMLNode<ISDMLObject>
+    public class SDMLNode : ISDMLNode<ISDMLDataElement>
     {
-        public ISDMLObject Data { get; set; }
-        public ISDMLNode<ISDMLObject> Parent { get; set; }
-        public Dictionary<string, ISDMLNode<ISDMLObject>> Child { get; set; }
+        public ISDMLDataElement Data { get; set; }
+        public ISDMLNode<ISDMLDataElement> Parent { get; set; }
+        public Dictionary<string, ISDMLNode<ISDMLDataElement>> Child { get; set; }
 
         public SDMLNode() { }
 
-        public SDMLNode(ISDMLObject data)
+        public SDMLNode(ISDMLDataElement data)
         {
             Data = data;
         }

@@ -1,6 +1,7 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
 using SDML.NET.Core.Infrastructure.Models;
 using SDML.NET.Core.Structures;
+using System;
 
 namespace SDML.NET.Core.Builders
 {
@@ -40,7 +41,10 @@ namespace SDML.NET.Core.Builders
 
         public void BuildDocument(ISDMLDocument data)
         {
-            throw new System.NotImplementedException();
+            if (data == null)
+                throw new NullReferenceException("Object is null!");
+
+            
         }
 
         public void BuildFile(ISDMLFile data)

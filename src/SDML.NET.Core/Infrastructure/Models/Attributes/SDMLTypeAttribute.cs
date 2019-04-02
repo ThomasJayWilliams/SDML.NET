@@ -3,6 +3,6 @@
     public class SDMLTypeAttribute : ISDMLTypeAttribute
     {
         public string ObjectName { get; } = "Type";
-        public string Name { get; set; }
+        public string Value { get; set; }
     }
 }

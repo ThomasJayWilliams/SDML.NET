@@ -8,7 +8,7 @@ namespace SDML.NET.Core.Infrastructure.Models
 
         public string ObjectName { get; } = "References";
 
-        public string Name { get; set; }
+        public string ElementName { get; set; }
 
         public void AddAttribute(ISDMLAttribute attribute)
         {
