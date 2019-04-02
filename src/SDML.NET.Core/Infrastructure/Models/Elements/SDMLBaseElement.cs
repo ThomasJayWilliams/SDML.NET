@@ -8,6 +8,7 @@ namespace SDML.NET.Core.Infrastructure.Models
     {
         public List<ISDMLAttribute> Attributes { get; } = new List<ISDMLAttribute>();
         public List<ISDMLDataElement> Childs { get; } = new List<ISDMLDataElement>();
+        public ISDMLDataElement Parent { get; set; }
         public abstract string ObjectName { get; }
 
         public SDMLBaseElement(params ISDMLObject[] elements)
@@ -15,9 +16,17 @@ namespace SDML.NET.Core.Infrastructure.Models
             foreach (var item in elements)
             {
                 if (item.GetType().IsSubclassOf(typeof(ISDMLAttribute)))
-                    Attributes.Add((ISDMLAttribute)item);
+                {
+                    var attribute = (ISDMLAttribute)item;
+                    attribute.Owner = this;
+                    Attributes.Add(attribute);
+                }
                 else if (item.GetType().IsSubclassOf(typeof(ISDMLDataElement)))
-                    Childs.Add((ISDMLDataElement)item);
+                {
+                    var element = (ISDMLDataElement)item;
+                    element.Parent = this;
+                    Childs.Add(element);
+                }
             }
         }
 

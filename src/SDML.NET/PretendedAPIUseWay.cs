@@ -8,15 +8,11 @@ namespace SDML.NET
         public void GetSDML()
         {
             var sdmlGen = new SDMLGenerator();
-            sdmlGen.Build(new SDMLDocument(
-                new SDMLNameAttribute("SolutionDescriptionDocument"),
-                new SDMLSolution(
-                    new SDMLNameAttribute("SDML.NET"),
+            sdmlGen.Build(new SDMLDocument("SDML.NET Library Description",
+                new SDMLSolution("SDML.NET",
                     new SDMLTypeAttribute(".NET Standard Library"),
-                    new SDMLProject(
-                        new SDMLNameAttribute("SDML.NET"),
-                        new SDMLClass(
-                            new SDMLNameAttribute("InvalidNodeException"),
+                    new SDMLProject("SDML.NET",
+                        new SDMLClass("InvalidNodeException",
                             new SDMLMethod(
                                 new SDMLNameAttribute("ThisMethodDoesNotEvenExist")))))));
         }
