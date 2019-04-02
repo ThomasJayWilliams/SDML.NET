@@ -1,4 +1,5 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
+using SDML.NET.Core.Infrastructure.Models.Attributes;
 using System.Collections.Generic;
 
 namespace SDML.NET.Core.Infrastructure.Models
@@ -18,6 +19,12 @@ namespace SDML.NET.Core.Infrastructure.Models
                 else if (item.GetType().IsSubclassOf(typeof(ISDMLDataElement)))
                     Childs.Add((ISDMLDataElement)item);
             }
+        }
+
+        public SDMLBaseElement(string name, params ISDMLObject[] elements) : this(elements)
+        {
+            if (!string.IsNullOrEmpty(name))
+                Attributes.Add(new SDMLNameAttribute(name));
         }
 
         public string GetTag()

@@ -7,5 +7,6 @@ namespace SDML.NET.Core.Infrastructure.Models
         public override string ObjectName { get; } = "Document";
 
         public SDMLDocument(params ISDMLObject[] elements) : base(elements) { }
+        public SDMLDocument(string name, params ISDMLObject[] elements) : base(name, elements) { }
     }
 }
