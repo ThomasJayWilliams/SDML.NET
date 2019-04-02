@@ -1,5 +1,6 @@
 ﻿using SDML.NET.Core.Infrastructure.Models;
 using SDML.NET.Core.Infrastructure.Models.Attributes;
+using System;
 
 namespace SDML.NET
 {
@@ -15,6 +16,9 @@ namespace SDML.NET
                         new SDMLClass("InvalidNodeException",
                             new SDMLMethod(
                                 new SDMLNameAttribute("ThisMethodDoesNotEvenExist")))))));
+
+            Console.WriteLine(sdmlGen.Format());
+            Console.ReadLine();
         }
     }
 }

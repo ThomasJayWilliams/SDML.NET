@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SDML.NET.Core\SDML.NET.Core.csproj" />
+  </ItemGroup>
+
 </Project>
