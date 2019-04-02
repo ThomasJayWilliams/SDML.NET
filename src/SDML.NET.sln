@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDML.NET", "SDML.NET\SDML.NET.csproj", "{9BB35FD4-09D5-4BC0-B776-9E53E7CE145C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDML.NET.Core", "SDML.NET.Core\SDML.NET.Core.csproj", "{D297A6D6-E9B5-4F8B-86A3-758A319346AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDML.NET.Core", "SDML.NET.Core\SDML.NET.Core.csproj", "{D297A6D6-E9B5-4F8B-86A3-758A319346AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDML.NET.Renderer", "SDML.NET.Renderer\SDML.NET.Renderer.csproj", "{F3F76533-8CD0-4EC1-B01D-96A481530BF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D297A6D6-E9B5-4F8B-86A3-758A319346AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D297A6D6-E9B5-4F8B-86A3-758A319346AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D297A6D6-E9B5-4F8B-86A3-758A319346AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3F76533-8CD0-4EC1-B01D-96A481530BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3F76533-8CD0-4EC1-B01D-96A481530BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3F76533-8CD0-4EC1-B01D-96A481530BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3F76533-8CD0-4EC1-B01D-96A481530BF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
