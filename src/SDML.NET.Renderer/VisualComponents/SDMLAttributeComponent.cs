@@ -5,5 +5,10 @@ namespace SDML.NET.Renderer.VisualComponents
     public class SDMLAttributeComponent : SDMLBaseVisualComponent
     {
         public SDMLAttributeComponent(ISDMLAttribute attribute) : base(attribute) { }
+
+        public override void Parse()
+        {
+            
+        }
     }
 }

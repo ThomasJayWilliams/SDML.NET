@@ -2,7 +2,7 @@
 
 namespace SDML.NET.Renderer.VisualComponents
 {
-    public class SDMLBaseVisualComponent
+    public abstract class SDMLBaseVisualComponent
     {
         public string Data { get; set; }
         public ISDMLObject Source { get; set; }
@@ -11,5 +11,7 @@ namespace SDML.NET.Renderer.VisualComponents
         {
             Source = source;
         }
+
+        public abstract void Parse();
     }
 }
