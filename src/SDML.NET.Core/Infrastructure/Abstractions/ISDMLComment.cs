@@ -2,6 +2,6 @@
 {
 	public interface ISDMLComment : ISDMLObject
 	{
-
+        string Value { get; set; }
 	}
 }

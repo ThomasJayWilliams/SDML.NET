@@ -2,11 +2,11 @@
 
 namespace SDML.NET
 {
-    public class SDMLGenerator : ISDMLGenerator
+    public class AutoGenerator : ISDMLGenerator
     {
         public void Build(ISDMLDataElement sourceElement)
         {
-
+            
         }
     }
 }

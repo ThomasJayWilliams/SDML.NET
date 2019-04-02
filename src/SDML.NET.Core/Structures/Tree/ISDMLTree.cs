@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
+using SDML.NET.Core.Infrastructure.Abstractions;
 
 namespace SDML.NET.Core.Structures
 {
-    public interface ISDMLTree<T>
+    public interface ISDMLTree
     {
-        ISDMLNode<T> Root { get; }
-        Dictionary<string, ISDMLNode<T>> Nodes { get; }
+        ISDMLNode Root { get; }
+        Dictionary<string, ISDMLNode> Nodes { get; }
     }
 
-    public interface ISDMLNode<T>
+    public interface ISDMLNode
     {
-        T Data { get; set; }
-        ISDMLNode<T> Parent { get; set; }
-        Dictionary<string, ISDMLNode<T>> Child { get; set; }
+        ISDMLDataElement Data { get; set; }
+        ISDMLNode Parent { get; set; }
+        Dictionary<string, ISDMLNode> Children { get; set; }
     }
 }

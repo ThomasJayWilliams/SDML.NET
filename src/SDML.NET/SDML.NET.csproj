@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ninject" Version="3.3.4" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SDML.NET.Core\SDML.NET.Core.csproj" />
   </ItemGroup>
 

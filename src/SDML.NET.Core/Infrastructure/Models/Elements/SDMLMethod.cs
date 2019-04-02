@@ -2,22 +2,10 @@
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-    public class SDMLMethod : ISDMLMethod
+    public class SDMLMethod : SDMLBaseElement
     {
-        public bool HasBody { get; }
-        public string ObjectName { get; } = "Method";
-        public string ElementName { get; set; }
+        public override string ObjectName { get; } = "Method";
 
-        public void AddAttribute(ISDMLAttribute attribute)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetTag()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override string ToString() => GetTag();
+        public SDMLMethod(params ISDMLObject[] elements) : base(elements) { }
     }
 }

@@ -2,22 +2,10 @@
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-    public class SDMLReference : ISDMLReference
+    public class SDMLReference : SDMLBaseElement
     {
-        public bool HasBody { get; }
-        public string ObjectName { get; } = "Reference";
-        public string ElementName { get; set; }
+        public override string ObjectName { get; } = "Reference";
 
-        public void AddAttribute(ISDMLAttribute attribute)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetTag()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override string ToString() => GetTag();
+        public SDMLReference(params ISDMLObject[] elements) : base(elements) { }
     }
 }

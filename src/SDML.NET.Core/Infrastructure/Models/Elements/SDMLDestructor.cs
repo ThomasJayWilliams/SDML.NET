@@ -2,22 +2,10 @@
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-    public class SDMLDestructor : ISDMLDestructor
+    public class SDMLDestructor : SDMLBaseElement
     {
-        public bool HasBody { get; }
-        public string ObjectName { get; } = "Destructor";
-        public string ElementName { get; set; }
+        public override string ObjectName { get; } = "Destructor";
 
-        public void AddAttribute(ISDMLAttribute attribute)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetTag()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override string ToString() => GetTag();
+        public SDMLDestructor(params ISDMLObject[] elements) : base(elements) { }
     }
 }

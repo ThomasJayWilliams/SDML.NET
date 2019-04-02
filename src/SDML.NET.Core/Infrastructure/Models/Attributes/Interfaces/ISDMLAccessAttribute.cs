@@ -2,7 +2,7 @@
 
 namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-    public interface ISDMLAccessAttribute<T> : ISDMLAttribute<T>
+    public interface ISDMLAccessAttribute : ISDMLAttribute
     {
 
     }

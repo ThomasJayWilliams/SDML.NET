@@ -1,11 +1,13 @@
-﻿namespace SDML.NET.Core.Infrastructure.Abstractions
+﻿using System.Collections.Generic;
+using System;
+
+namespace SDML.NET.Core.Infrastructure.Abstractions
 {
 	public interface ISDMLDataElement : ISDMLObject
 	{
-        bool HasBody { get; }
-        string ElementName { get; set; }
-
-        void AddAttribute(ISDMLAttribute attribute);
+        List<ISDMLAttribute> Attributes { get; }
+        List<ISDMLDataElement> Childs { get; }
+        
         string GetTag();
 	}
 }

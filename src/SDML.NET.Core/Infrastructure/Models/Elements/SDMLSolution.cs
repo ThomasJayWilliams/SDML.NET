@@ -1,23 +1,12 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
+using System.Collections.Generic;
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-    public class SDMLSolution : ISDMLSolution
+    public class SDMLSolution : SDMLBaseElement
     {
-        public bool HasBody { get; }
-        public string ObjectName { get; } = "Solution";
-        public string ElementName { get; set; }
+        public override string ObjectName { get; } = "Solution";
 
-        public void AddAttribute(ISDMLAttribute attribute)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetTag()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override string ToString() => GetTag();
+        public SDMLSolution(params ISDMLObject[] elements) : base(elements) { }
     }
 }
