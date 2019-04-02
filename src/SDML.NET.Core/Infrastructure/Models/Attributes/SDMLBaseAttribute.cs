@@ -6,5 +6,10 @@ namespace SDML.NET.Core.Infrastructure.Models.Attributes
     {
         public string Value { get; set; }
         public abstract string ObjectName { get; }
+
+        public SDMLBaseAttribute(string value)
+        {
+            Value = value;
+        }
     }
 }

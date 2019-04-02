@@ -3,5 +3,7 @@
     public class SDMLAccessAttribute : SDMLBaseAttribute
     {
         public override string ObjectName { get; } = "Access";
+
+        public SDMLAccessAttribute(string value) : base(value) { }
     }
 }

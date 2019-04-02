@@ -3,5 +3,7 @@
     public class SDMLTypeAttribute : SDMLBaseAttribute
     {
         public override string ObjectName { get; } = "Type";
+
+        public SDMLTypeAttribute(string value) : base(value) { }
     }
 }
