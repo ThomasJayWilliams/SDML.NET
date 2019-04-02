@@ -1,8 +1,7 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-    public class SDMLAccessAttribute : ISDMLAccessAttribute
+    public class SDMLAccessAttribute : SDMLBaseAttribute
     {
-        public string Value { get; set; }
-        public string ObjectName { get; } = "Access";
+        public override string ObjectName { get; } = "Access";
     }
 }

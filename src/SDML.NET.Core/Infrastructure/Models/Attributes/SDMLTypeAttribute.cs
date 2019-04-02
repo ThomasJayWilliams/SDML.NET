@@ -1,8 +1,7 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-    public class SDMLTypeAttribute : ISDMLTypeAttribute
+    public class SDMLTypeAttribute : SDMLBaseAttribute
     {
-        public string ObjectName { get; } = "Type";
-        public string Value { get; set; }
+        public override string ObjectName { get; } = "Type";
     }
 }
