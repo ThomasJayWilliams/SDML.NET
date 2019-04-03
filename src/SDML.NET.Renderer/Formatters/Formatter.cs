@@ -1,12 +1,12 @@
-﻿using SDML.NET.Core.Infrastructure.Abstractions;
-using System.Threading.Tasks;
+﻿using SDML.NET.Renderer.DTOs;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SDML.NET.Renderer.Formatters
 {
-    public static class Formatter
+	public static class Formatter
     {
-        public static string FormatData(ISDMLDataElement data)
+        public static string FormatData(DataDTO data)
         {
             var sb = new StringBuilder();
 
@@ -15,7 +15,7 @@ namespace SDML.NET.Renderer.Formatters
             return sb.ToString();
         }
 
-        public static Task FormatDataAsync(ISDMLDataElement data)
+        public static Task FormatDataAsync(DataDTO data)
         {
             var sb = new StringBuilder();
 

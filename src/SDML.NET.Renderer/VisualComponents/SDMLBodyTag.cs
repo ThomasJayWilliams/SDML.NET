@@ -1,37 +1,33 @@
-﻿using SDML.NET.Core.Infrastructure.Abstractions;
+﻿using SDML.NET.Renderer.DTOs;
+using System.Collections.Generic;
 using System.Text;
 
 namespace SDML.NET.Renderer.VisualComponents
 {
-    public class SDMLBodyTag : SDMLBaseTag
+	public class SDMLBodyTag : SDMLBaseTag
     {
-        public ISDMLDataElement Source { get; }
         public string OpenTag { get; }
         public string CloseTag { get; }
 
-        public SDMLBodyTag(ISDMLDataElement element)
-        {
-            Source = element;
-            Parse();
-        }
+        public SDMLBodyTag(IEnumerable<DataAttributeDTO> attributes, DataElementDTO element) : base(attributes, element) { }
 
         public override void Parse()
         {
-            if (Source != null)
+            if (Element != null)
             {
                 var tag = new StringBuilder();
                 var attributes = new StringBuilder();
 
-                foreach (var attr in Source.Attributes)
+                foreach (var attr in Attributes)
                     attributes.Append($" {attr.ObjectName} = {attr.Value}");
                 
                 // <Solution>...
-                tag.Append($"{Constants.BodyOpenTagBeginSymbol}{Source.ObjectName}");
+                tag.Append($"{Constants.BodyOpenTagBeginSymbol}{Element.ObjectName}");
                 tag.Append(attributes);
                 tag.Append($" {Constants.BodyOpenTagEndSymbol}");
 
                 //</Solution>
-                tag.Append($"{Constants.BodyCloseTagBeginSymbol}{Source.ObjectName}{Constants.BodyCloseTagEndSymbol}");
+                tag.Append($"{Constants.BodyCloseTagBeginSymbol}{Element.ObjectName}{Constants.BodyCloseTagEndSymbol}");
 
                 Data = tag.ToString();
             }
