@@ -17,17 +17,15 @@ namespace SDML.NET.Core.Infrastructure.Models
         {
             foreach (var item in elements)
             {
-                if (item.GetType().IsSubclassOf(typeof(ISDMLAttribute)))
+                if (item.GetType().IsSubclassOf(typeof(SDMLBaseAttribute)))
                 {
-                    var attribute = (ISDMLAttribute)item;
-                    attribute.Owner = this;
-                    Attributes.Add(attribute);
+                    ((ISDMLAttribute)item).Owner = this;
+                    Attributes.Add(((ISDMLAttribute)item));
                 }
-                else if (item.GetType().IsSubclassOf(typeof(ISDMLDataElement)))
+                else if (item.GetType().IsSubclassOf(typeof(SDMLBaseElement)))
                 {
-                    var element = (ISDMLDataElement)item;
-                    element.Parent = this;
-                    Childs.Add(element);
+                    ((ISDMLDataElement)item).Parent = this;
+                    Childs.Add((ISDMLDataElement)item);
                 }
             }
         }
@@ -35,7 +33,7 @@ namespace SDML.NET.Core.Infrastructure.Models
         public SDMLBaseElement(string name, params ISDMLObject[] elements) : this(elements)
         {
             if (!string.IsNullOrEmpty(name))
-                Attributes.Add(new SDMLNameAttribute(name));
+                Attributes.Add(new SDMLNameAttribute(name) { Owner = this });
         }
     }
 }

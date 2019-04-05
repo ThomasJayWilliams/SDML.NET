@@ -1,12 +1,11 @@
 ﻿using SDML.NET.Core.Infrastructure.Models;
 using SDML.NET.Core.Infrastructure.Models.Attributes;
-using System;
 
 namespace SDML.NET
 {
     public class PretendedAPIUseWay
     {
-        public void GetSDML()
+        public string GetSDML()
         {
             var sdmlGen = new SDMLGenerator();
             sdmlGen.Build(new SDMLDocument("SDML.NET Library Description",
@@ -17,8 +16,7 @@ namespace SDML.NET
                             new SDMLMethod(
                                 new SDMLNameAttribute("ThisMethodDoesNotEvenExist")))))));
 
-            Console.WriteLine(sdmlGen.Format());
-            Console.ReadLine();
+            return sdmlGen.Format();
         }
     }
 }
