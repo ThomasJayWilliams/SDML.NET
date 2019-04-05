@@ -19,7 +19,9 @@ namespace SDML.NET
                             new SDMLNameAttribute("InvalidNodeException"),
                             new SDMLMethod(
                                 new SDMLNameAttribute("ThisMethodDoesNotEvenExist"),
-                                new SDMLDescription("This is some random method. And this is its description.")))))));
+                                new SDMLDescription(
+                                    "This is some random method. And this is its description.",
+                                    new SDMLNameAttribute("ExampleDescription"))))))));
 
             return sdmlGen.Format();
         }

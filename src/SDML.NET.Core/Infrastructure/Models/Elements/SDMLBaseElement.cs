@@ -27,6 +27,10 @@ namespace SDML.NET.Core.Infrastructure.Models
         {
             if (Childs.Count > 0)
                 throw new InvalidElementDeclarationException("Invalid element formatting! Element cannot hold both childs and value!");
+
+            if (string.IsNullOrEmpty(value))
+                throw new ArgumentException("Value cannot be null or empty!");
+            Value = value;
         }
 
         public SDMLBaseElement(params ISDMLObject[] elements)
