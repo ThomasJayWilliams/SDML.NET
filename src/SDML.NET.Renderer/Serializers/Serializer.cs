@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SDML.NET.Renderer.Formatters
 {
-	public static class Formatter
+	public static class Serializer
     {
         private static int _tabCounter = 0;
 
-        public static string FormatData(DataElementDTO data) => Build(data).ToString();        
-        public static async Task FormatDataAsync(DataElementDTO data) => await Task.Run(() => Build(data).ToString());
+        public static string SerializeData(DataElementDTO data) => Build(data).ToString();        
+        public static async Task SerializeDataAsync(DataElementDTO data) => await Task.Run(() => Build(data).ToString());
 
         private static StringBuilder Build(DataElementDTO data)
         {

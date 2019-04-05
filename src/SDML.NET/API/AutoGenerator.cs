@@ -10,12 +10,12 @@ namespace SDML.NET
             
         }
 
-        public string Format()
+        public string Serialize()
         {
             throw new System.NotImplementedException();
         }
 
-        public Task FormatAsync()
+        public Task SerializeAsync()
         {
             throw new System.NotImplementedException();
         }

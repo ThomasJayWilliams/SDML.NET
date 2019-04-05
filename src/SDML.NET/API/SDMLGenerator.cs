@@ -14,11 +14,11 @@ namespace SDML.NET
             Document = sourceElement;
         }
 
-        public string Format() =>
-            Formatter.FormatData(SDMLGeneratorHelper.ToDTO(Document));
+        public string Serialize() =>
+            Serializer.SerializeData(SDMLGeneratorHelper.ToDTO(Document));
 
-        public async Task FormatAsync() =>
-            await Formatter.FormatDataAsync(SDMLGeneratorHelper.ToDTO(Document));
+        public async Task SerializeAsync() =>
+            await Serializer.SerializeDataAsync(SDMLGeneratorHelper.ToDTO(Document));
 
         public void Save(string path)
         {

@@ -7,8 +7,8 @@ namespace SDML.NET
     {
         void Save(string path);
         void SaveAsync(string path);
-        string Format();
-        Task FormatAsync();
+        string Serialize();
+        Task SerializeAsync();
         void Build(ISDMLDataElement sourceElement);
     }
 }
