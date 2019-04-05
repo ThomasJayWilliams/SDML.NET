@@ -6,7 +6,7 @@ namespace SDML.NET.Renderer.Formatters
 {
 	public static class Formatter
     {
-        public static string FormatData(DataDTO data)
+        public static string FormatData(DataElementDTO data)
         {
             var sb = new StringBuilder();
 
@@ -15,7 +15,7 @@ namespace SDML.NET.Renderer.Formatters
             return sb.ToString();
         }
 
-        public static Task FormatDataAsync(DataDTO data)
+        public static Task FormatDataAsync(DataElementDTO data)
         {
             var sb = new StringBuilder();
 

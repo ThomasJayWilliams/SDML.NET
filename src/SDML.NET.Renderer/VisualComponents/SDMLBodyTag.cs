@@ -1,15 +1,14 @@
 ﻿using SDML.NET.Renderer.DTOs;
-using System.Collections.Generic;
 using System.Text;
 
 namespace SDML.NET.Renderer.VisualComponents
 {
-	public class SDMLBodyTag : SDMLBaseTag
+    public class SDMLBodyTag : SDMLBaseTag
     {
         public string OpenTag { get; }
         public string CloseTag { get; }
 
-        public SDMLBodyTag(IEnumerable<DataAttributeDTO> attributes, DataElementDTO element) : base(attributes, element) { }
+        public SDMLBodyTag(DataElementDTO data) : base(data) { }
 
         public override void Parse()
         {
@@ -18,7 +17,7 @@ namespace SDML.NET.Renderer.VisualComponents
                 var tag = new StringBuilder();
                 var attributes = new StringBuilder();
 
-                foreach (var attr in Attributes)
+                foreach (var attr in Element.Attributes)
                     attributes.Append($" {attr.ObjectName} = {attr.Value}");
                 
                 // <Solution>...
