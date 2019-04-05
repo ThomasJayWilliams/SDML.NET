@@ -1,9 +1,9 @@
 # SDML.NET
 
 
-SDML.NET is open source library, based on .NET Standard platform.
+SDML.NET is an open source library, based on .NET Standard platform.
 
-SDML (Solution Description Markup Language) provides bunch of tags and attributes, which will help developers describe their solution up to details like methods parameters, types of properties, references, hierarchy of inheriting and so on. It will generate SDML documents, based on input data. Also, it will be able to generate SDML data automatically by using .NET reflection mechanismes.
+SDML (Solution Description Markup Language) provides bunch of elements and attributes, which will help developers describe their solutions up to details, like methods parameters, types of properties, references, hierarchy of inheriting and so on. It will generate SDML documents, based on input data. Also, it will be able to generate SDML data automatically by using .NET reflection mechanismes.
 
 Currently there is no clear specification for SDML standard and I still implement new ways to describe solutions.
 SDML pretends to be user friendly, i.e. be easy to read without any rendering.
@@ -19,8 +19,9 @@ There are no hard requirements to document - you can even put the code into it, 
 
 I'm a student master and this is my masters project. Also, I'm not a real programmer, just a trainee.
 Although I have a job and I cannot spend all my time on it, plus deadline is far away, so I don't have to push myself.
-But in spite of this I will be happy to get any help with developing library and standard as wll.
-But, if you want to contribute, please, create another branch with short name of your changes and send me a pull request.
+
+But in spite of this I will be happy to get any help with developing library and standard as well. But, if you want to contribute, please, create another branch with short name of your changes and send me a merge request.
+Also, anticipating questions I want to explain why I started to creating own generator rather then used another, prooven by time generators like LINQ to XML - I'll just wanted to create it on my own. This is quite awesome experience and I like to projects like this one.
 
 As far as that there is no specification for it, I decided to develop library first, and then write specification.
 
@@ -75,4 +76,27 @@ SDML.NET/docs/examples/example.sdml
         </Project>
     </Solution>
 </Document>
+```
+
+
+Currently SDML.NET supports the following generation mechanic:
+
+```cs
+var sdmlGen = new SDMLGenerator();
+            sdmlGen.Build(new SDMLDocument(
+                new SDMLNameAttribute("SDML.NET Library Description"),
+                new SDMLSolution(
+                    new SDMLNameAttribute("SDML.NET"),
+                    new SDMLTypeAttribute(".NET Standard Library"),
+                    new SDMLProject(
+                        new SDMLNameAttribute("SDML.NET"),
+                        new SDMLClass(
+                            new SDMLNameAttribute("InvalidNodeException"),
+                            new SDMLMethod(
+                                new SDMLNameAttribute("ThisMethodDoesNotEvenExist"),
+                                new SDMLDescription(
+                                    "This is some random method. And this is its description.",
+                                    new SDMLNameAttribute("ExampleDescription"))))))));
+
+            return sdmlGen.Serialize();
 ```
