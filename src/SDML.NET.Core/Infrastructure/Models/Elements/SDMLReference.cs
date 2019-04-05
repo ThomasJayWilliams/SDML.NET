@@ -6,7 +6,9 @@ namespace SDML.NET.Core.Infrastructure.Models
     {
         public override string ObjectName { get; } = "Reference";
 
+        public SDMLReference() : base() { }
+        public SDMLReference(string value) : base(value) { }
+        public SDMLReference(string value, params ISDMLObject[] elements) : base(value, elements) { }
         public SDMLReference(params ISDMLObject[] elements) : base(elements) { }
-        public SDMLReference(string name, params ISDMLObject[] elements) : base(name, elements) { }
     }
 }

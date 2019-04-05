@@ -9,7 +9,7 @@ namespace SDML.NET.Renderer.Formatters
 	public static class Formatter
     {
         public static string FormatData(DataElementDTO data) => Build(data).ToString();        
-        public static async Task FormatDataAsync(DataElementDTO data) => await Task.Run(() => FormatData(data));
+        public static async Task FormatDataAsync(DataElementDTO data) => await Task.Run(() => Build(data).ToString());
 
         private static StringBuilder Build(DataElementDTO data)
         {

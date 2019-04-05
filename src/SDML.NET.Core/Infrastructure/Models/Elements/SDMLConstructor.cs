@@ -6,7 +6,9 @@ namespace SDML.NET.Core.Infrastructure.Models
     {
         public override string ObjectName { get; } = "Constructor";
 
+        public SDMLConstructor() : base() { }
+        public SDMLConstructor(string value) : base(value) { }
+        public SDMLConstructor(string value, params ISDMLObject[] elements) : base(value, elements) { }
         public SDMLConstructor(params ISDMLObject[] elements) : base(elements) { }
-        public SDMLConstructor(string name, params ISDMLObject[] elements) : base(name, elements) { }
     }
 }

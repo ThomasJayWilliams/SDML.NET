@@ -1,5 +1,6 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
 using SDML.NET.Core.Infrastructure.Models.Attributes;
+using System;
 using System.Collections.Generic;
 
 namespace SDML.NET.Core.Infrastructure.Models
@@ -12,6 +13,21 @@ namespace SDML.NET.Core.Infrastructure.Models
         public string Value { get; set; }
 
         public abstract string ObjectName { get; }
+
+        public SDMLBaseElement() { }
+
+        public SDMLBaseElement(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                throw new ArgumentException("Value cannot be null or empty!");
+            Value = value;
+        }
+
+        public SDMLBaseElement(string value, params ISDMLObject[] attributes) : this(attributes)
+        {
+            if (Childs.Count > 0)
+                throw new InvalidElementDeclarationException("Invalid element formatting! Element cannot hold both childs and value!");
+        }
 
         public SDMLBaseElement(params ISDMLObject[] elements)
         {
@@ -28,12 +44,6 @@ namespace SDML.NET.Core.Infrastructure.Models
                     Childs.Add((ISDMLDataElement)item);
                 }
             }
-        }
-
-        public SDMLBaseElement(string name, params ISDMLObject[] elements) : this(elements)
-        {
-            if (!string.IsNullOrEmpty(name))
-                Attributes.Add(new SDMLNameAttribute(name) { Owner = this });
         }
     }
 }

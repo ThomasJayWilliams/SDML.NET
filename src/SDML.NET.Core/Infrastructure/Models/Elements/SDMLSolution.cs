@@ -1,5 +1,4 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
-using System.Collections.Generic;
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
@@ -7,7 +6,9 @@ namespace SDML.NET.Core.Infrastructure.Models
     {
         public override string ObjectName { get; } = "Solution";
 
+        public SDMLSolution() : base() { }
+        public SDMLSolution(string value) : base(value) { }
+        public SDMLSolution(string value, params ISDMLObject[] elements) : base(value, elements) { }
         public SDMLSolution(params ISDMLObject[] elements) : base(elements) { }
-        public SDMLSolution(string name, params ISDMLObject[] elements) : base(name, elements) { }
     }
 }

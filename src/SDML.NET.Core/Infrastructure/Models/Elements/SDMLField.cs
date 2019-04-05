@@ -6,7 +6,9 @@ namespace SDML.NET.Core.Infrastructure.Models
     {
         public override string ObjectName { get; } = "Field";
 
+        public SDMLField() : base() { }
+        public SDMLField(string value) : base(value) { }
+        public SDMLField(string value, params ISDMLObject[] elements) : base(value, elements) { }
         public SDMLField(params ISDMLObject[] elements) : base(elements) { }
-        public SDMLField(string name, params ISDMLObject[] elements) : base(name, elements) { }
     }
 }

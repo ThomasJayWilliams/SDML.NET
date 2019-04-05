@@ -6,7 +6,9 @@ namespace SDML.NET.Core.Infrastructure.Models
     {
         public override string ObjectName { get; } = "Property";
 
+        public SDMLProperty() : base() { }
+        public SDMLProperty(string value) : base(value) { }
+        public SDMLProperty(string value, params ISDMLObject[] elements) : base(value, elements) { }
         public SDMLProperty(params ISDMLObject[] elements) : base(elements) { }
-        public SDMLProperty(string name, params ISDMLObject[] elements) : base(name, elements) { }
     }
 }

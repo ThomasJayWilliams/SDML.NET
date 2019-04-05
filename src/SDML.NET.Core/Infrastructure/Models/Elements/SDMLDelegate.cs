@@ -6,7 +6,9 @@ namespace SDML.NET.Core.Infrastructure.Models
     {
         public override string ObjectName { get; } = "Delegate";
 
+        public SDMLDelegate() : base() { }
+        public SDMLDelegate(string value) : base(value) { }
+        public SDMLDelegate(string value, params ISDMLObject[] elements) : base(value, elements) { }
         public SDMLDelegate(params ISDMLObject[] elements) : base(elements) { }
-        public SDMLDelegate(string name, params ISDMLObject[] elements) : base(name, elements) { }
     }
 }
