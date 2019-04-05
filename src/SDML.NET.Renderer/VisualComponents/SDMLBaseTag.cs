@@ -4,16 +4,14 @@ namespace SDML.NET.Renderer.VisualComponents
 {
     public abstract class SDMLBaseTag
 	{
-		public string Data { get; set; }
 		public DataElementDTO Element { get; }
 
 		public SDMLBaseTag(DataElementDTO data)
 		{
 			Element = data;
+            Parse();
 		}
 
-        public abstract void Parse();
-
-        public override string ToString() => Data;
+        protected abstract void Parse();
     }
 }

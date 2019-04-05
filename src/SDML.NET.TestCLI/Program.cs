@@ -7,7 +7,9 @@ namespace SDML.NET.TestCLI
         static void Main(string[] args)
         {
             var test = new PretendedAPIUseWay();
-            Console.WriteLine(test.GetSDML());
+
+            var markup = test.GetSDML();
+            Console.WriteLine(markup);
             Console.ReadLine();
         }
     }

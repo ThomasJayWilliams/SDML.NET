@@ -8,20 +8,22 @@ namespace SDML.NET.Renderer.Formatters
 {
 	public static class Formatter
     {
-        public static string FormatData(DataElementDTO data)
+        public static string FormatData(DataElementDTO data) => Build(data).ToString();        
+        public static async Task FormatDataAsync(DataElementDTO data) => await Task.Run(() => FormatData(data));
+
+        private static StringBuilder Build(DataElementDTO data)
         {
             var sb = new StringBuilder();
 
             if (data.Childs.Any() || !string.IsNullOrEmpty(data.Value))
             {
                 var tag = new SDMLBodyTag(data);
-                tag.Parse();
 
                 sb.AppendLine(tag.OpenTag);
 
                 if (data.Childs.Any())
                     foreach (var item in data.Childs)
-                        sb.AppendLine($"\t{FormatData(item)}");
+                        sb.Append(Build(item).ToString());
                 else
                     sb.AppendLine(data.Value);
 
@@ -30,14 +32,10 @@ namespace SDML.NET.Renderer.Formatters
             else
             {
                 var tag = new SDMLBodylessTag(data);
-                tag.Parse();
-
                 sb.AppendLine(tag.Tag);
             }
 
-            return sb.ToString();
+            return sb;
         }
-
-        public static async Task FormatDataAsync(DataElementDTO data) => await Task.Run(() => FormatData(data));
     }
 }

@@ -9,7 +9,7 @@ namespace SDML.NET.Renderer.VisualComponents
 
 		public SDMLBodylessTag(DataElementDTO data) : base(data) { }
 
-        public override void Parse()
+        protected override void Parse()
         {
             if (Element != null)
             {
@@ -25,7 +25,6 @@ namespace SDML.NET.Renderer.VisualComponents
                 tag.Append($" {Constants.BodylessTagEndSymbol}");
 
                 Tag = tag.ToString();
-                Data = tag.ToString();
             }
         }
     }

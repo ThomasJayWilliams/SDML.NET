@@ -10,7 +10,7 @@ namespace SDML.NET.Renderer.VisualComponents
 
         public SDMLBodyTag(DataElementDTO data) : base(data) { }
 
-        public override void Parse()
+        protected override void Parse()
         {
             if (Element != null)
             {
@@ -26,14 +26,11 @@ namespace SDML.NET.Renderer.VisualComponents
                 tag.Append($"{Constants.BodyOpenTagEndSymbol}");
 
                 OpenTag = tag.ToString();
-                Data = tag.ToString();
                 tag.Clear();
 
-                //</Solution>
+                // </Solution>
                 tag.Append($"{Constants.BodyCloseTagBeginSymbol}{Element.ObjectName}{Constants.BodyCloseTagEndSymbol}");
                 CloseTag = tag.ToString();
-
-                Data += tag.ToString();
             }
         }
     }
