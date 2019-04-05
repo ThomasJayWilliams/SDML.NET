@@ -8,6 +8,8 @@ namespace SDML.NET.Renderer.Formatters
 {
 	public static class Formatter
     {
+        private static int _tabCounter = 0;
+
         public static string FormatData(DataElementDTO data) => Build(data).ToString();        
         public static async Task FormatDataAsync(DataElementDTO data) => await Task.Run(() => Build(data).ToString());
 
@@ -19,23 +21,38 @@ namespace SDML.NET.Renderer.Formatters
             {
                 var tag = new SDMLBodyTag(data);
 
-                sb.AppendLine(tag.OpenTag);
+                sb.AppendLine(WriteTag(tag.OpenTag));
 
                 if (data.Childs.Any())
+                {
+                    _tabCounter++;
                     foreach (var item in data.Childs)
                         sb.Append(Build(item).ToString());
+                }
                 else
-                    sb.AppendLine(data.Value);
+                    _tabCounter++;
+                    sb.AppendLine(WriteTag(data.Value));
 
-                sb.AppendLine(tag.CloseTag);
+                _tabCounter--;
+                sb.Append(WriteTag(tag.CloseTag));
             }
             else
             {
                 var tag = new SDMLBodylessTag(data);
-                sb.AppendLine(tag.Tag);
+                sb.AppendLine(WriteTag(tag.Tag));
             }
 
             return sb;
+        }
+
+        private static string WriteTag(string tagPart) => $"{GetTabs()}{tagPart}";
+
+        private static string GetTabs()
+        {
+            var result = "";
+            for (int i = 0; i < _tabCounter; i++)
+                result += "\t";
+            return result;
         }
     }
 }
