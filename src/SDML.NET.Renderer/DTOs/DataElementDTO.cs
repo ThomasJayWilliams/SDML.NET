@@ -8,5 +8,6 @@ namespace SDML.NET.Renderer.DTOs
         public string ObjectName { get; set; }
         public IEnumerable<DataElementDTO> Childs { get; set; }
         public DataElementDTO Parent { get; set; }
+        public string Value { get; set; }
     }
 }

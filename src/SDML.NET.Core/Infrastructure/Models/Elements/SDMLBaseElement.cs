@@ -9,6 +9,8 @@ namespace SDML.NET.Core.Infrastructure.Models
         public List<ISDMLAttribute> Attributes { get; } = new List<ISDMLAttribute>();
         public List<ISDMLDataElement> Childs { get; } = new List<ISDMLDataElement>();
         public ISDMLDataElement Parent { get; set; }
+        public string Value { get; set; }
+
         public abstract string ObjectName { get; }
 
         public SDMLBaseElement(params ISDMLObject[] elements)
@@ -35,12 +37,5 @@ namespace SDML.NET.Core.Infrastructure.Models
             if (!string.IsNullOrEmpty(name))
                 Attributes.Add(new SDMLNameAttribute(name));
         }
-
-        public string GetTag()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override string ToString() => GetTag();
     }
 }

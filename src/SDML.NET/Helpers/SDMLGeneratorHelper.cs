@@ -25,6 +25,7 @@ namespace SDML.NET.Helpers
                     childs.Add(ToDTO(item));
 
                 dto.Parent = ToDTO(data.Parent);
+                dto.Value = data.Value;
             }
 
             return dto;

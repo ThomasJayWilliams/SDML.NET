@@ -7,6 +7,7 @@ namespace SDML.NET.Renderer.VisualComponents
     {
         public string OpenTag { get; private set; }
         public string CloseTag { get; private set; }
+        public string Body { get; private set; }
 
         public SDMLBodyTag(DataElementDTO data) : base(data) { }
 
