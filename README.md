@@ -25,7 +25,7 @@ Also, anticipating questions I want to explain why I started to creating own gen
 
 As far as that there is no specification for it, I decided to develop library first, and then write specification.
 
-Here's the example of standart SDML document (writeen handly):
+Here's the example of standart SDML document (written handly):
 
 SDML.NET/docs/examples/example.sdml
 ```xml
@@ -84,20 +84,20 @@ Currently SDML.NET supports the following generation mechanic:
 SDML.NET/PretendedAPIUserWay.cs
 ```cs
 var sdmlGen = new SDMLGenerator();
-            sdmlGen.Build(new SDMLDocument(
-                new SDMLNameAttribute("SDML.NET Library Description"),
-                new SDMLSolution(
-                    new SDMLNameAttribute("SDML.NET"),
-                    new SDMLTypeAttribute(".NET Standard Library"),
-                    new SDMLProject(
-                        new SDMLNameAttribute("SDML.NET"),
-                        new SDMLClass(
-                            new SDMLNameAttribute("InvalidNodeException"),
-                            new SDMLMethod(
-                                new SDMLNameAttribute("ThisMethodDoesNotEvenExist"),
-                                new SDMLDescription(
-                                    "This is some random method. And this is its description.",
-                                    new SDMLNameAttribute("ExampleDescription"))))))));
+sdmlGen.Build(new SDMLDocument(
+    new SDMLNameAttribute("SDML.NET Library Description"),
+    new SDMLSolution(
+        new SDMLNameAttribute("SDML.NET"),
+        new SDMLTypeAttribute(".NET Standard Library"),
+        new SDMLProject(
+            new SDMLNameAttribute("SDML.NET"),
+            new SDMLClass(
+                new SDMLNameAttribute("InvalidNodeException"),
+                new SDMLMethod(
+                    new SDMLNameAttribute("ThisMethodDoesNotEvenExist"),
+                    new SDMLDescription(
+                        "This is some random method. And this is its description.",
+                        new SDMLNameAttribute("ExampleDescription"))))))));
 
-            return sdmlGen.Serialize();
+return sdmlGen.Serialize();
 ```
