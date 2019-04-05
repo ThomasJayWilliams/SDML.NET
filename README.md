@@ -19,6 +19,8 @@ There are no hard requirements to document - you can even put the code into it, 
 
 I'm a student master and this is my masters project. Also, I'm not a real programmer, just a trainee.
 Although I have a job and I cannot spend all my time on it, plus deadline is far away, so I don't have to push myself.
+But in spite of this I will be happy to get any help with developing library and standard as wll.
+But, if you want to contribute, please, create another branch with short name of your changes and send me a pull request.
 
 As far as that there is no specification for it, I decided to develop library first, and then write specification.
 
