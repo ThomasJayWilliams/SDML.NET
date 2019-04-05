@@ -5,6 +5,8 @@ namespace SDML.NET.Renderer.VisualComponents
 {
     public class SDMLBodylessTag : SDMLBaseTag
 	{
+        public string Tag { get; private set; }
+
 		public SDMLBodylessTag(DataElementDTO data) : base(data) { }
 
         public override void Parse()
@@ -22,6 +24,7 @@ namespace SDML.NET.Renderer.VisualComponents
                 tag.Append(attributes);
                 tag.Append($" {Constants.BodylessTagEndSymbol}");
 
+                Tag = tag.ToString();
                 Data = tag.ToString();
             }
         }
