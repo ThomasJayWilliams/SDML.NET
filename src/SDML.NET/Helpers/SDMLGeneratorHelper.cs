@@ -9,6 +9,7 @@ namespace SDML.NET.Helpers
         public static DataElementDTO ToDTO(ISDMLDataElement data)
         {
             var dto = new DataElementDTO();
+
             if (data != null)
             {
                 var attributes = new List<DataAttributeDTO>();
@@ -17,20 +18,25 @@ namespace SDML.NET.Helpers
                 dto.ObjectName = data.ObjectName;
 
                 foreach (var item in data.Attributes)
-                    attributes.Add(ToDTO(item));
+                    attributes.Add(ToDTO(item, dto));
 
                 dto.Attributes = attributes;
 
                 foreach (var item in data.Childs)
-                    childs.Add(ToDTO(item));
+                {
+                    var element = ToDTO(item);
+                    element.Parent = dto;
+                    childs.Add(element);
+                }
 
-                dto.Parent = ToDTO(data.Parent);
+                dto.Childs = childs;
                 dto.Value = data.Value;
             }
 
             return dto;
         }
 
-        public static DataAttributeDTO ToDTO(ISDMLAttribute data) => new DataAttributeDTO() { ObjectName = data.ObjectName, Value = data.Value };
+        public static DataAttributeDTO ToDTO(ISDMLAttribute data, DataElementDTO owner) => 
+            new DataAttributeDTO() { ObjectName = data.ObjectName, Value = data.Value, Owner = owner };
     }
 }

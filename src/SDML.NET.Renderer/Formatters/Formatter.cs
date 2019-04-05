@@ -12,7 +12,7 @@ namespace SDML.NET.Renderer.Formatters
         {
             var sb = new StringBuilder();
 
-            if (data.Childs.Any() || string.IsNullOrEmpty(data.Value))
+            if (data.Childs.Any() || !string.IsNullOrEmpty(data.Value))
             {
                 var tag = new SDMLBodyTag(data);
                 tag.Parse();
@@ -21,7 +21,7 @@ namespace SDML.NET.Renderer.Formatters
 
                 if (data.Childs.Any())
                     foreach (var item in data.Childs)
-                        sb.AppendLine(FormatData(item));
+                        sb.AppendLine($"\t{FormatData(item)}");
                 else
                     sb.AppendLine(data.Value);
 

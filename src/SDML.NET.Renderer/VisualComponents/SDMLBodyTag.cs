@@ -7,7 +7,6 @@ namespace SDML.NET.Renderer.VisualComponents
     {
         public string OpenTag { get; private set; }
         public string CloseTag { get; private set; }
-        public string Body { get; private set; }
 
         public SDMLBodyTag(DataElementDTO data) : base(data) { }
 
@@ -19,12 +18,12 @@ namespace SDML.NET.Renderer.VisualComponents
                 var attributes = new StringBuilder();
 
                 foreach (var attr in Element.Attributes)
-                    attributes.Append($" {attr.ObjectName} = {attr.Value}");
+                    attributes.Append($" {attr.ObjectName}=\"{attr.Value}\"");
 
                 // <Solution>...
                 tag.Append($"{Constants.BodyOpenTagBeginSymbol}{Element.ObjectName}");
                 tag.Append(attributes);
-                tag.Append($" {Constants.BodyOpenTagEndSymbol}");
+                tag.Append($"{Constants.BodyOpenTagEndSymbol}");
 
                 OpenTag = tag.ToString();
                 Data = tag.ToString();

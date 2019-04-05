@@ -8,7 +8,7 @@ namespace SDML.NET.TestCLI
         {
             var test = new PretendedAPIUseWay();
             Console.WriteLine(test.GetSDML());
-            Console.ReadKey();
+            Console.ReadLine();
         }
     }
 }

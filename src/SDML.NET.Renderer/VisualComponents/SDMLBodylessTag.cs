@@ -17,8 +17,8 @@ namespace SDML.NET.Renderer.VisualComponents
                 var attributes = new StringBuilder();
 
                 foreach (var attr in Element.Attributes)
-                    attributes.Append($" {attr.ObjectName} = {attr.Value}");
-                
+                    attributes.Append($" {attr.ObjectName}=\"{attr.Value}\"");
+
                 // <Solution />
                 tag.Append($"{Constants.BodylessTagBeginSymbol}{Element.ObjectName}");
                 tag.Append(attributes);

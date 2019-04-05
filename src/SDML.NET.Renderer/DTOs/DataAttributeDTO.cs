@@ -4,5 +4,6 @@
 	{
 		public string ObjectName { get; set; }
 		public string Value { get; set; }
+        public DataElementDTO Owner { get; set; }
 	}
 }
