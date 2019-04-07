@@ -7,6 +7,5 @@ namespace SDML.NET.Core.Infrastructure.Abstractions
         List<ISDMLAttribute> Attributes { get; }
         List<ISDMLDataElement> Childs { get; }
         ISDMLDataElement Parent { get; set; }
-        string Value { get; set; }
 	}
 }

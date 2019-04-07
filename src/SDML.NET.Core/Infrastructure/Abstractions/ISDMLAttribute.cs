@@ -3,6 +3,5 @@
 	public interface ISDMLAttribute : ISDMLObject
 	{
         ISDMLDataElement Owner { get; set; }
-        string Value { get; set; }
 	}
 }

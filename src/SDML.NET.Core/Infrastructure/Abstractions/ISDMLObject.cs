@@ -3,5 +3,6 @@
     public interface ISDMLObject
 	{
         string ObjectName { get; }
+		string Value { get; set; }
 	}
 }
