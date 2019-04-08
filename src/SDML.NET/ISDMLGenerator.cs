@@ -5,7 +5,7 @@ namespace SDML.NET
 {
     public interface ISDMLGenerator
     {
-        ElementTree Elements { get; set; }
+        ElementTree Tree { get; set; }
 
         void Save(string path);
         void SaveAsync(string path);

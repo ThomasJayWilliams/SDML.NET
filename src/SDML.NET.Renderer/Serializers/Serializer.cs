@@ -5,12 +5,15 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SDML.NET.Renderer.Formatters
+namespace SDML.NET.Renderer
 {
     public static class Serializer
     {
-        public static ElementTree SerializeData(DataElementDTO data) => BuildTree(data);        
-        public static async Task<ElementTree> SerializeDataAsync(DataElementDTO data) => await Task.Run(() => BuildTree(data));
+        public static ElementTree SerializeData(DataElementDTO data, RenderOptions options) =>
+            BuildTree(data, options);  
+        
+        public static async Task<ElementTree> SerializeDataAsync(DataElementDTO data, RenderOptions options) =>
+            await Task.Run(() => BuildTree(data, options));
 
         public static string GetData(ElementTree tree)
         {
@@ -20,7 +23,7 @@ namespace SDML.NET.Renderer.Formatters
             return tree.Root.Data;
         }
 
-        public static ElementTree BuildTree(DataElementDTO data)
+        public static ElementTree BuildTree(DataElementDTO data, RenderOptions options)
         {
             var tree = new ElementTree();
 
@@ -47,7 +50,7 @@ namespace SDML.NET.Renderer.Formatters
 
                 foreach (var item in data.Childs)
                 {
-                    var temp = BuildTree(item);
+                    var temp = BuildTree(item, options);
 
                     foreach (var node in temp.Elements)
                     {
@@ -73,5 +76,10 @@ namespace SDML.NET.Renderer.Formatters
 
             return tree;
         }
+    }
+
+    public class RenderOptions
+    {
+        public RenderTypes RenderType { get; set; } = RenderTypes.Escaped;
     }
 }

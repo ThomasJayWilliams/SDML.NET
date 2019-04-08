@@ -1,12 +1,12 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
 using SDML.NET.Renderer.DataStructures;
-using SDML.NET.Renderer.Formatters;
+using SDML.NET.Renderer;
 
 namespace SDML.NET
 {
     public class AutoGenerator : ISDMLGenerator
     {
-        public ElementTree Elements { get; set; }
+        public ElementTree Tree { get; set; }
 
         public void Build(ISDMLDataElement sourceElement)
         {
@@ -34,6 +34,6 @@ namespace SDML.NET
         }
 
         public string GetData() =>
-            Serializer.GetData(Elements);
+            Serializer.GetData(Tree);
     }
 }

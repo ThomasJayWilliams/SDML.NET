@@ -1,7 +1,7 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
 using SDML.NET.Helpers;
+using SDML.NET.Renderer;
 using SDML.NET.Renderer.DataStructures;
-using SDML.NET.Renderer.Formatters;
 
 namespace SDML.NET
 {
@@ -9,7 +9,7 @@ namespace SDML.NET
     {
         private ISDMLDataElement document { get; set; }
 
-        public ElementTree Elements { get; set; }
+        public ElementTree Tree { get; set; }
 
         public void Build(ISDMLDataElement sourceElement)
         {
@@ -17,10 +17,16 @@ namespace SDML.NET
         }
 
         public void Serialize() =>
-            Elements = Serializer.SerializeData(SDMLGeneratorHelper.ToDTO(document));
+            Tree = Serializer.SerializeData(SDMLGeneratorHelper.ToDTO(document), new RenderOptions());
+
+        public void Serialize(RenderOptions options) =>
+            Tree = Serializer.SerializeData(SDMLGeneratorHelper.ToDTO(document), options);
 
         public async void SerializeAsync() =>
-            Elements = await Serializer.SerializeDataAsync(SDMLGeneratorHelper.ToDTO(document));
+            Tree = await Serializer.SerializeDataAsync(SDMLGeneratorHelper.ToDTO(document), new RenderOptions());
+
+        public async void SerializeAsync(RenderOptions options) =>
+            Tree = await Serializer.SerializeDataAsync(SDMLGeneratorHelper.ToDTO(document), options);
 
         public void Save(string path)
         {
@@ -33,6 +39,6 @@ namespace SDML.NET
         }
 
         public string GetData() =>
-            Serializer.GetData(Elements);
+            Serializer.GetData(Tree);
     }
 }

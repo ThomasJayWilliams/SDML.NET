@@ -25,7 +25,7 @@ namespace SDML.NET
 
             sdmlGen.Serialize();
 
-            return sdmlGen.Elements.Root.Data;
+            return sdmlGen.Tree.Root.Data;
         }
     }
 }
