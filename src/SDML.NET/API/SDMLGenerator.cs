@@ -1,24 +1,27 @@
 ﻿using System.Threading.Tasks;
 using SDML.NET.Core.Infrastructure.Abstractions;
 using SDML.NET.Helpers;
+using SDML.NET.Renderer.DataStructures;
 using SDML.NET.Renderer.Formatters;
 
 namespace SDML.NET
 {
     public class SDMLGenerator : ISDMLGenerator
     {
-        public ISDMLDataElement Document { get; private set; }
+        private ISDMLDataElement document { get; set; }
+
+        public ElementTree Elements { get; set; }
 
         public void Build(ISDMLDataElement sourceElement)
         {
-            Document = sourceElement;
+            document = sourceElement;
         }
 
-        public string Serialize() =>
-            Serializer.SerializeData(SDMLGeneratorHelper.ToDTO(Document));
+        public void Serialize() =>
+            Elements = Serializer.SerializeData(SDMLGeneratorHelper.ToDTO(document));
 
-        public async Task SerializeAsync() =>
-            await Serializer.SerializeDataAsync(SDMLGeneratorHelper.ToDTO(Document));
+        public async void SerializeAsync() =>
+            Elements = await Serializer.SerializeDataAsync(SDMLGeneratorHelper.ToDTO(document));
 
         public void Save(string path)
         {

@@ -1,14 +1,16 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
-using System.Threading.Tasks;
+using SDML.NET.Renderer.DataStructures;
 
 namespace SDML.NET
 {
     public interface ISDMLGenerator
     {
+        ElementTree Elements { get; set; }
+
         void Save(string path);
         void SaveAsync(string path);
-        string Serialize();
-        Task SerializeAsync();
+        void Serialize();
+        void SerializeAsync();
         void Build(ISDMLDataElement sourceElement);
     }
 }

@@ -1,4 +1,5 @@
-﻿using SDML.NET.Renderer.DTOs;
+﻿using SDML.NET.Renderer.DataStructures;
+using SDML.NET.Renderer.DTOs;
 using SDML.NET.Renderer.VisualComponents;
 using System.Linq;
 using System.Text;
@@ -10,49 +11,61 @@ namespace SDML.NET.Renderer.Formatters
     {
         private static int _tabCounter = 0;
 
-        public static string SerializeData(DataElementDTO data) => Build(data).ToString();        
-        public static async Task SerializeDataAsync(DataElementDTO data) => await Task.Run(() => Build(data).ToString());
+        public static ElementTree SerializeData(DataElementDTO data) => BuildTree(data);        
+        public static async Task<ElementTree> SerializeDataAsync(DataElementDTO data) => await Task.Run(() => BuildTree(data));
 
-        private static StringBuilder Build(DataElementDTO data)
+        public static ElementTree BuildTree(DataElementDTO data)
         {
-            var sb = new StringBuilder();
+            var tree = new ElementTree();
 
-            if (data.Childs.Any() || !string.IsNullOrEmpty(data.Value))
+            if (!string.IsNullOrEmpty(data.Value))
             {
                 var tag = new SDMLBodyTag(data);
-
-                sb.AppendLine(WriteTag(tag.OpenTag));
-
-                if (data.Childs.Any())
+                tree.Elements.Add(new ElementNode()
                 {
-                    _tabCounter++;
-                    foreach (var item in data.Childs)
-                        sb.Append(Build(item).ToString());
-                }
-                else
-                    _tabCounter++;
-                    sb.AppendLine(WriteTag(data.Value));
-
-                _tabCounter--;
-                sb.Append(WriteTag(tag.CloseTag));
+                    Data = $"{tag.OpenTag}{data.Value}{tag.CloseTag}",
+                    Element = tag,
+                    Parent = new SDMLBodyTag(data.Parent)
+                });
             }
+
+            else if (data.Childs.Any())
+            {
+                var tag = new SDMLBodyTag(data);
+                var elementNode = new ElementNode()
+                {
+                    Data = tag.OpenTag,
+                    Element = tag,
+                    Parent = new SDMLBodyTag(data.Parent)
+                };
+
+                foreach (var item in data.Childs)
+                {
+                    var temp = BuildTree(item);
+
+                    foreach (var node in temp.Elements)
+                    {
+                        elementNode.Childs.Add(node);
+                        elementNode.Data += node.Data;
+                    }
+                }
+
+                elementNode.Data += tag.CloseTag;
+                tree.Add(elementNode);
+            }
+
             else
             {
                 var tag = new SDMLBodylessTag(data);
-                sb.AppendLine(WriteTag(tag.Tag));
+                tree.Elements.Add(new ElementNode()
+                {
+                    Data = $"{tag.Tag}",
+                    Element = tag,
+                    Parent = new SDMLBodyTag(data.Parent)
+                });
             }
 
-            return sb;
-        }
-
-        private static string WriteTag(string tagPart) => $"{GetTabs()}{tagPart}";
-
-        private static string GetTabs()
-        {
-            var result = "";
-            for (int i = 0; i < _tabCounter; i++)
-                result += "\t";
-            return result;
+            return tree;
         }
     }
 }

@@ -23,7 +23,9 @@ namespace SDML.NET
                                     "This is some random method. And this is its description.",
                                     new SDMLNameAttribute("ExampleDescription"))))))));
 
-            return sdmlGen.Serialize();
+            sdmlGen.Serialize();
+
+            return "";
         }
     }
 }
