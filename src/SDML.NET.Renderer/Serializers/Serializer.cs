@@ -14,13 +14,10 @@ namespace SDML.NET.Renderer.Formatters
 
         public static string GetData(ElementTree tree)
         {
-            if (tree == null)
+            if (tree == null || tree.Root == null)
                 throw new ArgumentException("Tree cannot be null!");
 
-            var renderer = new SDMLEscapedRenderer(tree);
-            renderer.Render();
-
-            return renderer.Data;
+            return tree.Root.Data;
         }
 
         public static ElementTree BuildTree(DataElementDTO data)
