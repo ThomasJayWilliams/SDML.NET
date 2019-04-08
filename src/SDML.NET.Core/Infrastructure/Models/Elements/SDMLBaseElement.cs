@@ -33,6 +33,7 @@ namespace SDML.NET.Core.Infrastructure.Models
             Value = value;
         }
 
+		// This constructor allows users insert SDML element, attributes and comments as part of one SDMLObject
         public SDMLBaseElement(params ISDMLObject[] elements)
         {
             foreach (var item in elements)

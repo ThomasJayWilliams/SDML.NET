@@ -6,27 +6,24 @@ using System.Collections.Generic;
 
 namespace SDML.NET.Renderer
 {
-    // Will contain data, required for Builder due to recusrion used in it
+	// Contains data, that needed on every step of parsing
     public sealed class RenderAccumulator
     {
+		// List of tabulations
+		// Number of tabs caused by level of hierarchy. Every level down will get one more tab
         public List<string> Tabs { get; set; } = new List<string>();
     }
 
-    internal static class RendererManager
+	// Heart of renderer - manages renderers and it's processes
+	internal static class RenderManager
     {
-        internal static void AddTab(RenderAccumulator acc) => acc.Tabs.Add(Constants.EscapeTabChar);
+		private static readonly IRendererFactory escapedFactory = new EscapedRendererFactory();
+		private static readonly IRendererFactory plainFactory = new PlainRendererFactory();
+
+		internal static void AddTab(RenderAccumulator acc) => acc.Tabs.Add(Constants.EscapeTabChar);
         internal static void RemoveTab(RenderAccumulator acc) => acc.Tabs.Remove(Constants.EscapeTabChar);
 
-        private static IRendererFactory GetFactory(RenderOptions options)
-        {
-            if (options.RenderType == RenderTypes.Escaped)
-                return new EscapedRendererFactory();
-            else if (options.RenderType == RenderTypes.Plain)
-                return new PlainRendererFactory();
-            else
-                throw new ArgumentException("Render options are invalid!");
-        }
-
+		// Depending on what needs to be rendered returns concrete renderer
         private static IRenderer GetRenderer(IRendererFactory factory, RenderOptions options)
         {
             if (options.TargetType == RenderTargetTypes.BodylessTag)
@@ -43,7 +40,14 @@ namespace SDML.NET.Renderer
 
         internal static string Render(SDMLTag element, RenderOptions options, RenderAccumulator acc)
         {
-            var renderer = GetRenderer(GetFactory(options), options);
+			IRenderer renderer;
+
+			if (options.RenderType == RenderTypes.Escaped)
+				renderer = GetRenderer(escapedFactory, options);
+
+			else
+				renderer = GetRenderer(plainFactory, options);
+
 			element.Tabs = acc.Tabs.GetAll();
 
             if (renderer != null)

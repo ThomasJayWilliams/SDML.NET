@@ -3,15 +3,21 @@ using SDML.NET.Renderer.DataStructures;
 
 namespace SDML.NET
 {
-    public interface ISDMLGenerator
-    {
-        ElementTree Tree { get; set; }
+	// Represents main API of SDML.NET - generate and parse data
+	public interface ISDMLGenerator
+	{
+		// Irrational tree of serialized elements
+		ElementTree Tree { get; set; }
 
-        void Save(string path);
-        void SaveAsync(string path);
-        void Serialize();
-        void SerializeAsync();
-        void Build(ISDMLDataElement sourceElement);
-        string GetData();
+		// Saves output string into file on disk
+		void Save(string path);
+		void SaveAsync(string path);
+		// Parses data from into string data
+		void Serialize();
+		void SerializeAsync();
+		// Builds tree from source data
+		void Build(ISDMLDataElement sourceElement);
+		// Returns whole document as a string
+		string GetData();
     }
 }

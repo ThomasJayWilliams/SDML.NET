@@ -2,6 +2,7 @@
 
 namespace SDML.NET.Core
 {
+	// Appears, when input element is invalid
     public class InvalidElementDeclarationException : Exception
     {
         private static string _defaultMessage = "Element is not well formed!";

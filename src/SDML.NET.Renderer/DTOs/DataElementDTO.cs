@@ -2,6 +2,7 @@
 
 namespace SDML.NET.Renderer.DTOs
 {
+	// DTO for SDML element
 	public class DataElementDTO
     {
         public IEnumerable<DataAttributeDTO> Attributes { get; set; }

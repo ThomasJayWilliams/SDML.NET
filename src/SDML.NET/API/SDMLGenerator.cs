@@ -16,9 +16,11 @@ namespace SDML.NET
             document = sourceElement;
         }
 
+		// Serialize source data to Renderer.DTOs and then sends them to Renderer
         public void Serialize() =>
             Tree = Serializer.SerializeData(SDMLGeneratorHelper.ToDTO(document), new RenderOptions());
 
+		// Besides data sends render options, which contains configurations for renderer
         public void Serialize(RenderOptions options) =>
             Tree = Serializer.SerializeData(SDMLGeneratorHelper.ToDTO(document), options);
 

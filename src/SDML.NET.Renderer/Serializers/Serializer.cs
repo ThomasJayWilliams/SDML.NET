@@ -9,12 +9,14 @@ namespace SDML.NET.Renderer
 {
     public static class Serializer
     {
+		// Builds and return tree of elements
         public static ElementTree SerializeData(DataElementDTO data, RenderOptions options) =>
             BuildTree(data, options);  
         
         public static async Task<ElementTree> SerializeDataAsync(DataElementDTO data, RenderOptions options) =>
             await Task.Run(() => BuildTree(data, options));
 
+		// Returns whole document as a string
         public static string GetData(ElementTree tree)
         {
             if (tree == null || tree.Root == null)
@@ -23,6 +25,7 @@ namespace SDML.NET.Renderer
             return tree.Root.Data;
         }
 
+		// Builds tree and parses each element
         private static ElementTree BuildTree(DataElementDTO data, RenderOptions options, RenderAccumulator accumulator = null)
         {
             var tree = new ElementTree();
@@ -39,7 +42,7 @@ namespace SDML.NET.Renderer
 
                 tree.Add(new ElementNode()
                 {
-                    Data = RendererManager.Render(tag, options, acc),
+                    Data = RenderManager.Render(tag, options, acc),
                     Element = tag,
                     Parent = new SDMLTag(data.Parent)
                 });
@@ -52,12 +55,12 @@ namespace SDML.NET.Renderer
 
                 var elementNode = new ElementNode()
                 {
-                    Data = RendererManager.Render(tag, options, acc),
+                    Data = RenderManager.Render(tag, options, acc),
                     Element = tag,
                     Parent = new SDMLTag(data.Parent)
                 };
 
-                RendererManager.AddTab(acc);
+                RenderManager.AddTab(acc);
 
                 foreach (var item in data.Childs)
                 {
@@ -72,7 +75,7 @@ namespace SDML.NET.Renderer
 
 				options.TargetType = RenderTargetTypes.ClosedTag;
 
-                elementNode.Data += RendererManager.Render(tag, options, acc);
+                elementNode.Data += RenderManager.Render(tag, options, acc);
                 tree.Add(elementNode);
             }
 
@@ -83,13 +86,13 @@ namespace SDML.NET.Renderer
 
                 tree.Add(new ElementNode()
                 {
-                    Data = RendererManager.Render(tag, options, acc),
+                    Data = RenderManager.Render(tag, options, acc),
                     Element = tag,
                     Parent = new SDMLTag(data.Parent)
                 });
             }
 
-            RendererManager.RemoveTab(acc);
+            RenderManager.RemoveTab(acc);
 
             return tree;
         }
