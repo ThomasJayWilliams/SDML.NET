@@ -1,16 +1,20 @@
-﻿using SDML.NET.Renderer.VisualComponents;
+﻿using SDML.NET.Renderer.Extensions;
+using SDML.NET.Renderer.VisualComponents;
+using System.Collections.Generic;
 
 namespace SDML.NET.Renderer
 {
     // Will contain data, required for Builder due to recusrion used in it
     public sealed class RenderAccumulator
     {
-        // Represents amount of layers, used to render tabs
-        public int LayerCounter { get; set; }
+        public List<string> Tabs { get; set; } = new List<string>();
     }
 
     internal static class Renderer
     {
+        internal static void AddTab(RenderAccumulator acc) => acc.Tabs.Add(Constants.EscapeTabChar);
+        internal static void RemoveTab(RenderAccumulator acc) => acc.Tabs.Remove(Constants.EscapeTabChar);
+
         internal static string RenderValue(string value, SDMLBodyTag element, RenderOptions options, RenderAccumulator acc)
         {
             var result = "";
@@ -22,11 +26,7 @@ namespace SDML.NET.Renderer
 
             else if (options.RenderType == RenderTypes.Escaped)
             {
-                var tabs = "";
-
-                if (acc != null)
-                    for (int i = 0; i < acc.LayerCounter; i++)
-                        tabs += Constants.EscapeTabChar;
+                var tabs = acc.Tabs.GetAll();
 
                 result += $"{tabs}{element.OpenTag}{Constants.EscapeNewLineChar}" +
                     $"{tabs}{Constants.EscapeTabChar}{value}{Constants.EscapeNewLineChar}" +
@@ -47,11 +47,7 @@ namespace SDML.NET.Renderer
 
             else if (options.RenderType == RenderTypes.Escaped)
             {
-                var tabs = "";
-
-                if (acc != null)
-                    for (int i = 0; i < acc.LayerCounter; i++)
-                        tabs += Constants.EscapeTabChar;
+                var tabs = acc.Tabs.GetAll();
 
                 result += $"{tabs}{element.OpenTag}{Constants.EscapeNewLineChar}";
             }
@@ -70,11 +66,7 @@ namespace SDML.NET.Renderer
 
             else if (options.RenderType == RenderTypes.Escaped)
             {
-                var tabs = "";
-
-                if (acc != null)
-                    for (int i = 0; i < acc.LayerCounter; i++)
-                        tabs += Constants.EscapeTabChar;
+                var tabs = acc.Tabs.GetAll();
 
                 result += $"{tabs}{element.Tag}{Constants.EscapeNewLineChar}";
             }
@@ -93,11 +85,7 @@ namespace SDML.NET.Renderer
 
             else if (options.RenderType == RenderTypes.Escaped)
             {
-                var tabs = "";
-
-                if (acc != null)
-                    for (int i = 0; i < acc.LayerCounter; i++)
-                        tabs += Constants.EscapeTabChar;
+                var tabs = acc.Tabs.GetAll();
 
                 result += $"{tabs}{element.CloseTag}{Constants.EscapeNewLineChar}";
             }

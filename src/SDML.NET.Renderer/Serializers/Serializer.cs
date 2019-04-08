@@ -51,7 +51,7 @@ namespace SDML.NET.Renderer
                     Parent = new SDMLBodyTag(data.Parent)
                 };
 
-                acc.LayerCounter++;
+                Renderer.AddTab(acc);
 
                 foreach (var item in data.Childs)
                 {
@@ -79,7 +79,7 @@ namespace SDML.NET.Renderer
                 });
             }
 
-            acc.LayerCounter--;
+            Renderer.RemoveTab(acc);
 
             return tree;
         }
