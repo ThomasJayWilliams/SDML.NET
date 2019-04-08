@@ -12,5 +12,6 @@ namespace SDML.NET
         void Serialize();
         void SerializeAsync();
         void Build(ISDMLDataElement sourceElement);
+        string GetData();
     }
 }

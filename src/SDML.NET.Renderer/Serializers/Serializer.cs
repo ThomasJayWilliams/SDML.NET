@@ -1,18 +1,27 @@
 ﻿using SDML.NET.Renderer.DataStructures;
 using SDML.NET.Renderer.DTOs;
 using SDML.NET.Renderer.VisualComponents;
+using System;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SDML.NET.Renderer.Formatters
 {
-	public static class Serializer
+    public static class Serializer
     {
-        private static int _tabCounter = 0;
-
         public static ElementTree SerializeData(DataElementDTO data) => BuildTree(data);        
         public static async Task<ElementTree> SerializeDataAsync(DataElementDTO data) => await Task.Run(() => BuildTree(data));
+
+        public static string GetData(ElementTree tree)
+        {
+            if (tree == null)
+                throw new ArgumentException("Tree cannot be null!");
+
+            var renderer = new SDMLEscapedRenderer(tree);
+            renderer.Render();
+
+            return renderer.Data;
+        }
 
         public static ElementTree BuildTree(DataElementDTO data)
         {
@@ -21,7 +30,7 @@ namespace SDML.NET.Renderer.Formatters
             if (!string.IsNullOrEmpty(data.Value))
             {
                 var tag = new SDMLBodyTag(data);
-                tree.Elements.Add(new ElementNode()
+                tree.Add(new ElementNode()
                 {
                     Data = $"{tag.OpenTag}{data.Value}{tag.CloseTag}",
                     Element = tag,
@@ -57,7 +66,7 @@ namespace SDML.NET.Renderer.Formatters
             else
             {
                 var tag = new SDMLBodylessTag(data);
-                tree.Elements.Add(new ElementNode()
+                tree.Add(new ElementNode()
                 {
                     Data = $"{tag.Tag}",
                     Element = tag,

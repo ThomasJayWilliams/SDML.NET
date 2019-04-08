@@ -1,29 +1,38 @@
 ﻿using SDML.NET.Renderer.VisualComponents;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
 
 namespace SDML.NET.Renderer.DataStructures
 {
     public class ElementTree
     {
-        public List<ElementNode> Elements { get; }
+        private List<ElementNode> elements { get; }
+
+        public ReadOnlyCollection<ElementNode> Elements
+        {
+            get { return new ReadOnlyCollection<ElementNode>(elements); }
+        }
+        public ElementNode Root { get; private set; }
 
         public ElementTree()
         {
-            Elements = new List<ElementNode>();
+            elements = new List<ElementNode>();
         }
 
         public void AddRange(ElementTree source)
         {
             if (source != null)
-                Elements.AddRange(source.Elements);
+                elements.AddRange(source.elements);
+            if (Root == null)
+                Root = source.Root;
         }
 
         public void Add(ElementNode node)
         {
             if (node != null)
-                Elements.Add(node);
+                elements.Add(node);
+            if (Root == null)
+                Root = node;
         }
     }
 

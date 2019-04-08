@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using SDML.NET.Core.Infrastructure.Abstractions;
+﻿using SDML.NET.Core.Infrastructure.Abstractions;
 using SDML.NET.Helpers;
 using SDML.NET.Renderer.DataStructures;
 using SDML.NET.Renderer.Formatters;
@@ -32,5 +31,8 @@ namespace SDML.NET
         {
             throw new System.NotImplementedException();
         }
+
+        public string GetData() =>
+            Serializer.GetData(Elements);
     }
 }
