@@ -1,27 +1,20 @@
-﻿using System;
+﻿using SDML.NET.Renderer.VisualComponents;
+using System;
 
 namespace SDML.NET.Renderer.Factory
 {
     internal class PlainRendererFactory : IRendererFactory
     {
-        public IRenderer CreateBodylessRenderer()
-        {
-            throw new NotImplementedException();
-        }
+		public IRenderer CreateBodylessRenderer() =>
+			new PlainBodylessRenderer();
 
-        public IRenderer CreateClosedRenderer()
-        {
-            throw new NotImplementedException();
-        }
+		public IRenderer CreateClosedRenderer() =>
+			new PlainClosedRenderer();
 
-        public IRenderer CreateOpenRenderer()
-        {
-            throw new NotImplementedException();
-        }
+		public IRenderer CreateOpenRenderer() =>
+			new PlainOpenRenderer();
 
-        public IRenderer CreateValueRenderer()
-        {
-            throw new NotImplementedException();
-        }
+		public IRenderer CreateValueRenderer() =>
+			new PlainValueRenderer();
     }
 }

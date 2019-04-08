@@ -4,7 +4,7 @@ using SDML.NET.Renderer;
 
 namespace SDML.NET
 {
-    public class AutoGenerator : ISDMLGenerator
+    public class SDMLAutoGenerator : ISDMLGenerator
     {
         public ElementTree Tree { get; set; }
 

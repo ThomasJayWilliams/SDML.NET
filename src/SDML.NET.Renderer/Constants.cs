@@ -1,19 +1,19 @@
 ﻿namespace SDML.NET.Renderer
 {
-    public static class Constants
+    internal static class Constants
     {
-        public const string BodyOpenTagBeginSymbol = "<";
-        public const string BodyOpenTagEndSymbol = ">";
-        public const string BodyCloseTagBeginSymbol = "</";
-        public const string BodyCloseTagEndSymbol = ">";
+        internal const string BodyOpenTagBeginSymbol = "<";
+        internal const string BodyOpenTagEndSymbol = ">";
+        internal const string BodyCloseTagBeginSymbol = "</";
+        internal const string BodyCloseTagEndSymbol = ">";
 
-        public const string BodylessTagBeginSymbol = "<";
-        public const string BodylessTagEndSymbol = "/>";
+        internal const string BodylessTagBeginSymbol = "<";
+        internal const string BodylessTagEndSymbol = "/>";
 
-        public const string CommentOpenSymbol = "<!--";
-        public const string CommentCloseSymbol = "-->";
+        internal const string CommentOpenSymbol = "<!--";
+        internal const string CommentCloseSymbol = "-->";
 
-        public const string EscapeTabChar = "\t";
-        public const string EscapeNewLineChar = "\n";
+        internal const string EscapeTabChar = "\t";
+        internal const string EscapeNewLineChar = "\n";
     }
 }

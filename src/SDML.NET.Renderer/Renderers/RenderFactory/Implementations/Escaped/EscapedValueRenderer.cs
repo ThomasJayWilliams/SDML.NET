@@ -2,11 +2,11 @@
 
 namespace SDML.NET.Renderer.Factory
 {
-    internal class EscapedValueRenderer : IRenderer
+	internal class EscapedValueRenderer : IRenderer
     {
-        public string Render(SDMLBaseTag element, RenderAccumulator accumulator)
-        {
-            throw new System.NotImplementedException();
-        }
+		public string Render(SDMLTag element) =>
+			$"{element.Tabs}{element.OpenTag}{Constants.EscapeNewLineChar}" +
+				$"{element.Tabs}{Constants.EscapeTabChar}{element.Object.Value}{Constants.EscapeNewLineChar}" +
+				$"{element.Tabs}{element.ClosedTag}{Constants.EscapeNewLineChar}";
     }
 }

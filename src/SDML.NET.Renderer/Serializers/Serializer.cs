@@ -28,28 +28,33 @@ namespace SDML.NET.Renderer
             var tree = new ElementTree();
 
             var acc = accumulator;
+
             if (accumulator == null)
                 acc = new RenderAccumulator();
 
             if (!string.IsNullOrEmpty(data.Value))
             {
-                var tag = new SDMLBodyTag(data);
+                var tag = new SDMLTag(data);
+				options.TargetType = RenderTargetTypes.Value;
+
                 tree.Add(new ElementNode()
                 {
                     Data = RendererManager.Render(tag, options, acc),
                     Element = tag,
-                    Parent = new SDMLBodyTag(data.Parent)
+                    Parent = new SDMLTag(data.Parent)
                 });
             }
 
             else if (data.Childs.Any())
             {
-                var tag = new SDMLBodyTag(data);
+                var tag = new SDMLTag(data);
+				options.TargetType = RenderTargetTypes.OpenTag;
+
                 var elementNode = new ElementNode()
                 {
                     Data = RendererManager.Render(tag, options, acc),
                     Element = tag,
-                    Parent = new SDMLBodyTag(data.Parent)
+                    Parent = new SDMLTag(data.Parent)
                 };
 
                 RendererManager.AddTab(acc);
@@ -65,18 +70,22 @@ namespace SDML.NET.Renderer
                     }
                 }
 
+				options.TargetType = RenderTargetTypes.ClosedTag;
+
                 elementNode.Data += RendererManager.Render(tag, options, acc);
                 tree.Add(elementNode);
             }
 
             else
             {
-                var tag = new SDMLBodylessTag(data);
+                var tag = new SDMLTag(data);
+				options.TargetType = RenderTargetTypes.BodylessTag;
+
                 tree.Add(new ElementNode()
                 {
                     Data = RendererManager.Render(tag, options, acc),
                     Element = tag,
-                    Parent = new SDMLBodyTag(data.Parent)
+                    Parent = new SDMLTag(data.Parent)
                 });
             }
 

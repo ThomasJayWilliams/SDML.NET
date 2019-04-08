@@ -1,6 +1,6 @@
 ﻿namespace SDML.NET.Renderer.Factory
 {
-    internal interface IRendererFactory
+	internal interface IRendererFactory
     {
         IRenderer CreateOpenRenderer();
         IRenderer CreateClosedRenderer();
