@@ -12,5 +12,8 @@
 
         public const string CommentOpenSymbol = "<!--";
         public const string CommentCloseSymbol = "-->";
+
+        public const string EscapeTabChar = "\t";
+        public const string EscapeNewLineChar = "\n";
     }
 }

@@ -23,16 +23,19 @@ namespace SDML.NET.Renderer
             return tree.Root.Data;
         }
 
-        public static ElementTree BuildTree(DataElementDTO data, RenderOptions options)
+        public static ElementTree BuildTree(DataElementDTO data, RenderOptions options, RenderAccumulator accumulator = null)
         {
             var tree = new ElementTree();
+            var acc = accumulator;
+            if (accumulator == null)
+                acc = new RenderAccumulator();
 
             if (!string.IsNullOrEmpty(data.Value))
             {
                 var tag = new SDMLBodyTag(data);
                 tree.Add(new ElementNode()
                 {
-                    Data = $"{tag.OpenTag}{data.Value}{tag.CloseTag}",
+                    Data = Renderer.RenderValue(data.Value, tag, options, acc),
                     Element = tag,
                     Parent = new SDMLBodyTag(data.Parent)
                 });
@@ -43,14 +46,16 @@ namespace SDML.NET.Renderer
                 var tag = new SDMLBodyTag(data);
                 var elementNode = new ElementNode()
                 {
-                    Data = tag.OpenTag,
+                    Data = Renderer.RenderOpen(tag, options, acc),
                     Element = tag,
                     Parent = new SDMLBodyTag(data.Parent)
                 };
 
+                acc.LayerCounter++;
+
                 foreach (var item in data.Childs)
                 {
-                    var temp = BuildTree(item, options);
+                    var temp = BuildTree(item, options, acc);
 
                     foreach (var node in temp.Elements)
                     {
@@ -59,7 +64,7 @@ namespace SDML.NET.Renderer
                     }
                 }
 
-                elementNode.Data += tag.CloseTag;
+                elementNode.Data += Renderer.RenderClosed(tag, options, acc);
                 tree.Add(elementNode);
             }
 
@@ -68,18 +73,15 @@ namespace SDML.NET.Renderer
                 var tag = new SDMLBodylessTag(data);
                 tree.Add(new ElementNode()
                 {
-                    Data = $"{tag.Tag}",
+                    Data = Renderer.RenderBodyless(tag, options, acc),
                     Element = tag,
                     Parent = new SDMLBodyTag(data.Parent)
                 });
             }
 
+            acc.LayerCounter--;
+
             return tree;
         }
-    }
-
-    public class RenderOptions
-    {
-        public RenderTypes RenderType { get; set; } = RenderTypes.Escaped;
     }
 }
