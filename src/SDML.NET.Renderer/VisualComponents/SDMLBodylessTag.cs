@@ -11,16 +11,16 @@ namespace SDML.NET.Renderer.VisualComponents
 
         protected override void Parse()
         {
-            if (Element != null)
+            if (Object != null)
             {
                 var tag = new StringBuilder();
                 var attributes = new StringBuilder();
 
-                foreach (var attr in Element.Attributes)
+                foreach (var attr in Object.Attributes)
                     attributes.Append($" {attr.ObjectName}=\"{attr.Value}\"");
 
                 // <Solution />
-                tag.Append($"{Constants.BodylessTagBeginSymbol}{Element.ObjectName}");
+                tag.Append($"{Constants.BodylessTagBeginSymbol}{Object.ObjectName}");
                 tag.Append(attributes);
                 tag.Append($" {Constants.BodylessTagEndSymbol}");
 

@@ -12,16 +12,16 @@ namespace SDML.NET.Renderer.VisualComponents
 
         protected override void Parse()
         {
-            if (Element != null)
+            if (Object != null)
             {
                 var tag = new StringBuilder();
                 var attributes = new StringBuilder();
 
-                foreach (var attr in Element.Attributes)
+                foreach (var attr in Object.Attributes)
                     attributes.Append($" {attr.ObjectName}=\"{attr.Value}\"");
 
                 // <Solution>...
-                tag.Append($"{Constants.BodyOpenTagBeginSymbol}{Element.ObjectName}");
+                tag.Append($"{Constants.BodyOpenTagBeginSymbol}{Object.ObjectName}");
                 tag.Append(attributes);
                 tag.Append($"{Constants.BodyOpenTagEndSymbol}");
 
@@ -29,7 +29,7 @@ namespace SDML.NET.Renderer.VisualComponents
                 tag.Clear();
 
                 // </Solution>
-                tag.Append($"{Constants.BodyCloseTagBeginSymbol}{Element.ObjectName}{Constants.BodyCloseTagEndSymbol}");
+                tag.Append($"{Constants.BodyCloseTagBeginSymbol}{Object.ObjectName}{Constants.BodyCloseTagEndSymbol}");
                 CloseTag = tag.ToString();
             }
         }

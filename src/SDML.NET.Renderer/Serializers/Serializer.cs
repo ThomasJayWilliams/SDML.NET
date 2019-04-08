@@ -23,9 +23,10 @@ namespace SDML.NET.Renderer
             return tree.Root.Data;
         }
 
-        public static ElementTree BuildTree(DataElementDTO data, RenderOptions options, RenderAccumulator accumulator = null)
+        private static ElementTree BuildTree(DataElementDTO data, RenderOptions options, RenderAccumulator accumulator = null)
         {
             var tree = new ElementTree();
+
             var acc = accumulator;
             if (accumulator == null)
                 acc = new RenderAccumulator();
@@ -35,7 +36,7 @@ namespace SDML.NET.Renderer
                 var tag = new SDMLBodyTag(data);
                 tree.Add(new ElementNode()
                 {
-                    Data = Renderer.RenderValue(data.Value, tag, options, acc),
+                    Data = RendererManager.Render(tag, options, acc),
                     Element = tag,
                     Parent = new SDMLBodyTag(data.Parent)
                 });
@@ -46,12 +47,12 @@ namespace SDML.NET.Renderer
                 var tag = new SDMLBodyTag(data);
                 var elementNode = new ElementNode()
                 {
-                    Data = Renderer.RenderOpen(tag, options, acc),
+                    Data = RendererManager.Render(tag, options, acc),
                     Element = tag,
                     Parent = new SDMLBodyTag(data.Parent)
                 };
 
-                Renderer.AddTab(acc);
+                RendererManager.AddTab(acc);
 
                 foreach (var item in data.Childs)
                 {
@@ -64,7 +65,7 @@ namespace SDML.NET.Renderer
                     }
                 }
 
-                elementNode.Data += Renderer.RenderClosed(tag, options, acc);
+                elementNode.Data += RendererManager.Render(tag, options, acc);
                 tree.Add(elementNode);
             }
 
@@ -73,13 +74,13 @@ namespace SDML.NET.Renderer
                 var tag = new SDMLBodylessTag(data);
                 tree.Add(new ElementNode()
                 {
-                    Data = Renderer.RenderBodyless(tag, options, acc),
+                    Data = RendererManager.Render(tag, options, acc),
                     Element = tag,
                     Parent = new SDMLBodyTag(data.Parent)
                 });
             }
 
-            Renderer.RemoveTab(acc);
+            RendererManager.RemoveTab(acc);
 
             return tree;
         }
