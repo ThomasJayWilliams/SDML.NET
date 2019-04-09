@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SDML.NET.Helpers
 {
-    public static class SDMLGeneratorHelper
+    public static class SdmlGeneratorHelper
     {
 		// Converts source data to Renderer.DTO
 		// To convert data uses recursion
