@@ -1,6 +1,7 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
 using SDML.NET.Renderer.DataStructures;
 using SDML.NET.Renderer;
+using System.Threading.Tasks;
 
 namespace SDML.NET
 {
@@ -23,17 +24,17 @@ namespace SDML.NET
             throw new System.NotImplementedException();
         }
 
-        public void Save(string path)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void SaveAsync(string path)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public string GetData() =>
             Serializer.GetData(Tree);
-    }
+
+		public bool Save(string path)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public Task<bool> SaveAsync(string path)
+		{
+			throw new System.NotImplementedException();
+		}
+	}
 }

@@ -24,6 +24,7 @@ namespace SDML.NET
                                     new SDMLNameAttribute("ExampleDescription"))))))));
 
             sdmlGen.Serialize();
+			sdmlGen.Save("F:/testExport.sdml");
 
             return sdmlGen.Tree.Root.Data;
         }

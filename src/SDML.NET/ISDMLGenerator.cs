@@ -1,5 +1,6 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
 using SDML.NET.Renderer.DataStructures;
+using System.Threading.Tasks;
 
 namespace SDML.NET
 {
@@ -10,8 +11,8 @@ namespace SDML.NET
 		ElementTree Tree { get; set; }
 
 		// Saves output string into file on disk
-		void Save(string path);
-		void SaveAsync(string path);
+		bool Save(string path);
+		Task<bool> SaveAsync(string path);
 		// Parses data from into string data
 		void Serialize();
 		void SerializeAsync();

@@ -3,6 +3,8 @@ using SDML.NET.Helpers;
 using SDML.NET.Renderer;
 using SDML.NET.Renderer.DataStructures;
 using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace SDML.NET
 {
@@ -32,17 +34,34 @@ namespace SDML.NET
         public async void SerializeAsync(RenderOptions options) =>
             Tree = await Serializer.SerializeDataAsync(SDMLGeneratorHelper.ToDTO(document), options);
 
-        public void Save(string path)
+        public bool Save(string path)
         {
-            throw new System.NotImplementedException();
-        }
+			ValidateSave(path);
+			return Exporters.SdmlExporter.Save(path, Tree.Root.Data);
+		}
 
-        public void SaveAsync(string path)
+        public async Task<bool> SaveAsync(string path)
         {
-            throw new System.NotImplementedException();
+			ValidateSave(path);
+			return await Exporters.SdmlExporter.SaveAsync(path, Tree.Root.Data);
         }
 
         public string GetData() =>
             Serializer.GetData(Tree);
+
+		private void ValidateSave(string path)
+		{
+			if (string.IsNullOrEmpty(path))
+				throw new ArgumentException("Path cannot be null or empty!");
+
+			if (string.IsNullOrEmpty(Tree.Root.Data))
+				throw new ArgumentException("Content cannot be null or empty!");
+
+			if (File.Exists(path))
+				throw new FileAlreadyExistsException("File with this path is already exists! Please, choose another name or directory!");
+
+			if (Path.GetExtension(path) != string.Empty && Path.GetExtension(path) != ".sdml")
+				throw new ArgumentException("File extension should be .sdml or empty!");
+		}
     }
 }
