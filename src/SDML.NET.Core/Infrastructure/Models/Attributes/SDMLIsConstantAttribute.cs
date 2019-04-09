@@ -1,9 +1,9 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-	public class SDMLIsConstantAttribute : SDMLBaseAttribute
+	public class SdmlIsConstantAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "IsConstant";
 
-		public SDMLIsConstantAttribute(string value) : base(value) { }
+		public SdmlIsConstantAttribute(string value) : base(value) { }
 	}
 }

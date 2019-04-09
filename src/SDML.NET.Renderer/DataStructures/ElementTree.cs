@@ -40,8 +40,8 @@ namespace SDML.NET.Renderer.DataStructures
 
     public class ElementNode
     {
-        public SDMLTag Element { get; set; }
-        public SDMLTag Parent { get; set; }
+        public SdmlTag Element { get; set; }
+        public SdmlTag Parent { get; set; }
         public List<ElementNode> Childs { get; set; }
         public string Data { get; set; }
 

@@ -4,7 +4,7 @@ namespace SDML.NET.Renderer.Factory
 {
     internal class PlainClosedRenderer : IRenderer
     {
-		public string Render(SDMLTag element) =>
+		public string Render(SdmlTag element) =>
 			$"{element.ClosedTag}";
 	}
 }

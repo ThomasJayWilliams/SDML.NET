@@ -37,27 +37,27 @@ namespace SDML.NET.Renderer
 
             if (!string.IsNullOrEmpty(data.Value))
             {
-                var tag = new SDMLTag(data);
+                var tag = new SdmlTag(data);
 				options.TargetType = RenderTargetTypes.Value;
 
                 tree.Add(new ElementNode()
                 {
                     Data = RenderManager.Render(tag, options, acc),
                     Element = tag,
-                    Parent = new SDMLTag(data.Parent)
+                    Parent = new SdmlTag(data.Parent)
                 });
             }
 
             else if (data.Childs.Any())
             {
-                var tag = new SDMLTag(data);
+                var tag = new SdmlTag(data);
 				options.TargetType = RenderTargetTypes.OpenTag;
 
                 var elementNode = new ElementNode()
                 {
                     Data = RenderManager.Render(tag, options, acc),
                     Element = tag,
-                    Parent = new SDMLTag(data.Parent)
+                    Parent = new SdmlTag(data.Parent)
                 };
 
                 RenderManager.AddTab(acc);
@@ -81,14 +81,14 @@ namespace SDML.NET.Renderer
 
             else
             {
-                var tag = new SDMLTag(data);
+                var tag = new SdmlTag(data);
 				options.TargetType = RenderTargetTypes.BodylessTag;
 
                 tree.Add(new ElementNode()
                 {
                     Data = RenderManager.Render(tag, options, acc),
                     Element = tag,
-                    Parent = new SDMLTag(data.Parent)
+                    Parent = new SdmlTag(data.Parent)
                 });
             }
 

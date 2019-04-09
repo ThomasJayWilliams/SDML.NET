@@ -1,9 +1,9 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-	public class SDMLIsReadonlyAttribute : SDMLBaseAttribute
+	public class SdmlIsReadonlyAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "IsReadonly";
 
-		public SDMLIsReadonlyAttribute(string value) : base(value) { }
+		public SdmlIsReadonlyAttribute(string value) : base(value) { }
 	}
 }

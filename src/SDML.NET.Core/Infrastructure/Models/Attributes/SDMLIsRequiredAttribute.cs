@@ -1,9 +1,9 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-	public class SDMLIsRequiredAttribute : SDMLBaseAttribute
+	public class SdmlIsRequiredAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "IsRequired";
 
-		public SDMLIsRequiredAttribute(string value) : base(value) { }
+		public SdmlIsRequiredAttribute(string value) : base(value) { }
 	}
 }

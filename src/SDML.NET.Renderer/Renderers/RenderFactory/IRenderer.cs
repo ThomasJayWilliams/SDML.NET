@@ -4,6 +4,6 @@ namespace SDML.NET.Renderer.Factory
 {
     internal interface IRenderer
     {
-        string Render(SDMLTag element);
+        string Render(SdmlTag element);
     }
 }

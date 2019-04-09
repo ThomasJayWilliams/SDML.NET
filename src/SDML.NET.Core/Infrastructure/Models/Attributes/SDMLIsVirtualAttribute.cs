@@ -1,9 +1,9 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-	public class SDMLIsVirtualAttribute : SDMLBaseAttribute
+	public class SdmlIsVirtualAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "IsVirtual";
 
-		public SDMLIsVirtualAttribute(string value) : base(value) { }
+		public SdmlIsVirtualAttribute(string value) : base(value) { }
 	}
 }

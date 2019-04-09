@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-    public abstract class SDMLBaseElement : ISDMLDataElement
+    public abstract class SdmlBaseElement : ISDMLDataElement
     {
         public List<ISDMLAttribute> Attributes { get; } = new List<ISDMLAttribute>();
         public List<ISDMLDataElement> Childs { get; } = new List<ISDMLDataElement>();
@@ -14,16 +14,16 @@ namespace SDML.NET.Core.Infrastructure.Models
 
         public abstract string ObjectName { get; }
 
-        public SDMLBaseElement() { }
+        public SdmlBaseElement() { }
 
-        public SDMLBaseElement(string value)
+        public SdmlBaseElement(string value)
         {
             if (string.IsNullOrEmpty(value))
                 throw new ArgumentException("Value cannot be null or empty!");
             Value = value;
         }
 		// This constructor allows users to insert SDML Element
-        public SDMLBaseElement(string value, params ISDMLObject[] attributes) : this(attributes)
+        public SdmlBaseElement(string value, params ISDMLObject[] attributes) : this(attributes)
         {
             if (Childs.Count > 0)
                 throw new InvalidElementDeclarationException("Invalid element formatting! Element cannot hold both childs and value!");
@@ -34,16 +34,16 @@ namespace SDML.NET.Core.Infrastructure.Models
         }
 
 		// This constructor allows users to insert SDML element, attributes and comments as part of one SDMLObject
-        public SDMLBaseElement(params ISDMLObject[] elements)
+        public SdmlBaseElement(params ISDMLObject[] elements)
         {
             foreach (var item in elements)
             {
-                if (item.GetType().IsSubclassOf(typeof(SDMLBaseAttribute)))
+                if (item.GetType().IsSubclassOf(typeof(SdmlBaseAttribute)))
                 {
                     ((ISDMLAttribute)item).Owner = this;
                     Attributes.Add(((ISDMLAttribute)item));
                 }
-                else if (item.GetType().IsSubclassOf(typeof(SDMLBaseElement)))
+                else if (item.GetType().IsSubclassOf(typeof(SdmlBaseElement)))
                 {
                     ((ISDMLDataElement)item).Parent = this;
                     Childs.Add((ISDMLDataElement)item);

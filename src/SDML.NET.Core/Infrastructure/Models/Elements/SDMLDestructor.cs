@@ -2,13 +2,13 @@
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-    public class SDMLDestructor : SDMLBaseElement
+    public class SdmlDestructor : SdmlBaseElement
     {
         public override string ObjectName { get; } = "Destructor";
 
-        public SDMLDestructor() : base() { }
-        public SDMLDestructor(string value) : base(value) { }
-        public SDMLDestructor(string value, params ISDMLObject[] elements) : base(value, elements) { }
-        public SDMLDestructor(params ISDMLObject[] elements) : base(elements) { }
+        public SdmlDestructor() : base() { }
+        public SdmlDestructor(string value) : base(value) { }
+        public SdmlDestructor(string value, params ISDMLObject[] elements) : base(value, elements) { }
+        public SdmlDestructor(params ISDMLObject[] elements) : base(elements) { }
     }
 }

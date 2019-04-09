@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SDML.NET.Renderer.VisualComponents
 {
-    public sealed class SDMLTag
+    public sealed class SdmlTag
 	{
 		public DataElementDTO Object { get; }
 
@@ -25,7 +25,7 @@ namespace SDML.NET.Renderer.VisualComponents
 
 		public string Tabs { get; set; }
 
-		public SDMLTag(DataElementDTO data)
+		public SdmlTag(DataElementDTO data)
 		{
 			Object = data;
 		}
