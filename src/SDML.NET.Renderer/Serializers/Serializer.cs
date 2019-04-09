@@ -28,13 +28,16 @@ namespace SDML.NET.Renderer
 		// Builds tree and parses each element
         private static ElementTree BuildTree(DataElementDTO data, RenderOptions options, RenderAccumulator accumulator = null)
         {
+			// Tree, that will exported to SdmlGenerator and will be containing all elements
             var tree = new ElementTree();
 
+			// Recursion accumulator. Allows to render tabulations, based on layer count
             var acc = accumulator;
 
             if (accumulator == null)
                 acc = new RenderAccumulator();
 
+			// If data has value that means this element donesn't have childs
             if (!string.IsNullOrEmpty(data.Value))
             {
                 var tag = new SDMLTag(data);
@@ -48,6 +51,7 @@ namespace SDML.NET.Renderer
                 });
             }
 
+			// If data contains at least one child it has to be serialized in a different way than value element
             else if (data.Childs.Any())
             {
                 var tag = new SDMLTag(data);
@@ -60,6 +64,7 @@ namespace SDML.NET.Renderer
                     Parent = new SDMLTag(data.Parent)
                 };
 
+				// Add tab to accumulator
                 RenderManager.AddTab(acc);
 
                 foreach (var item in data.Childs)
@@ -79,6 +84,7 @@ namespace SDML.NET.Renderer
                 tree.Add(elementNode);
             }
 
+			// If data has no value and no childs it will be rendered as bodyless tag
             else
             {
                 var tag = new SDMLTag(data);
@@ -92,6 +98,7 @@ namespace SDML.NET.Renderer
                 });
             }
 
+			// Removes tabs from accumulator
             RenderManager.RemoveTab(acc);
 
             return tree;
