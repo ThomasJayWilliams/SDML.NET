@@ -1,6 +1,6 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-		// Class that gets ContentType element of the SDML base attribute
+		// Class that allows users to add attribute as plain value
 	public class SDMLContentTypeAttribute : SDMLBaseAttribute
 	{
 		public override string ObjectName { get; } = "ContentType";
