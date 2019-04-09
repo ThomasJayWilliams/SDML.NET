@@ -2,6 +2,7 @@
 using SDML.NET.Helpers;
 using SDML.NET.Renderer;
 using SDML.NET.Renderer.DataStructures;
+using System;
 
 namespace SDML.NET
 {
@@ -13,7 +14,8 @@ namespace SDML.NET
 
         public void Build(ISDMLDataElement sourceElement)
         {
-            document = sourceElement;
+            document = sourceElement ??
+                throw new ArgumentException("Element cannot be null!");
         }
 
 		// Serialize source data to Renderer.DTOs and then sends them to Renderer

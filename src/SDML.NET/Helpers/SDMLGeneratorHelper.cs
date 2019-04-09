@@ -1,5 +1,6 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
 using SDML.NET.Renderer.DTOs;
+using System;
 using System.Collections.Generic;
 
 namespace SDML.NET.Helpers
@@ -35,6 +36,9 @@ namespace SDML.NET.Helpers
                 dto.Childs = childs;
                 dto.Value = data.Value;
             }
+
+            else
+                throw new NullReferenceException("Data element is null!");
 
             return dto;
         }

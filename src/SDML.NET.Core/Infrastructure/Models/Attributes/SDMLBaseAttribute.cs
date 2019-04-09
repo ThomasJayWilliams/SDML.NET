@@ -1,4 +1,5 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
+using System;
 
 namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
@@ -10,6 +11,8 @@ namespace SDML.NET.Core.Infrastructure.Models.Attributes
 
         public SDMLBaseAttribute(string value)
         {
+            if (string.IsNullOrEmpty(value))
+                throw new ArgumentException("Value cannot be null or empty!");
             Value = value;
         }
     }
