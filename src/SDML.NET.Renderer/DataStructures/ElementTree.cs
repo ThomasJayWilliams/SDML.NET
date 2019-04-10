@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace SDML.NET.Renderer.DataStructures
 {
-	// This structure represents irrational tree of SDML tags
+	// This structure represents irrational tree of Sdml tags
     public class ElementTree
     {
         private List<ElementNode> elements { get; }

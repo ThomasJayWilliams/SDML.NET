@@ -2,12 +2,12 @@
 
 namespace SDML.NET.Core.Infrastructure.Abstractions
 {
-	// Main building block os SDML - element
-	// Represents SDML tag - <Class>, <Mathod /> etc
-    public interface ISDMLDataElement : ISDMLObject
+	// Main building block os Sdml - element
+	// Represents Sdml tag - <Class>, <Mathod /> etc
+    public interface ISdmlDataElement : ISdmlObject
 	{
-        List<ISDMLAttribute> Attributes { get; }
-        List<ISDMLDataElement> Childs { get; }
-        ISDMLDataElement Parent { get; set; }
+        List<ISdmlAttribute> Attributes { get; }
+        List<ISdmlDataElement> Childs { get; }
+        ISdmlDataElement Parent { get; set; }
 	}
 }

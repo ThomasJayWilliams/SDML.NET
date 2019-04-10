@@ -8,7 +8,7 @@ namespace SDML.NET.Core.Infrastructure.Models
 
 		public SdmlTypeParameter() : base() { }
 		public SdmlTypeParameter(string value) : base(value) { }
-		public SdmlTypeParameter(string value, params ISDMLObject[] elements) : base(value, elements) { }
-		public SdmlTypeParameter(params ISDMLObject[] elements) : base(elements) { }
+		public SdmlTypeParameter(string value, params ISdmlObject[] elements) : base(value, elements) { }
+		public SdmlTypeParameter(params ISdmlObject[] elements) : base(elements) { }
 	}
 }

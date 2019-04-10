@@ -3,8 +3,8 @@ using SDML.NET.Renderer.DataStructures;
 
 namespace SDML.NET
 {
-	// Represents main API of SDML.NET - generate and parse data
-	public interface ISDMLGenerator
+	// Represents main API of Sdml.NET - generate and parse data
+	public interface ISdmlGenerator
 	{
 		// Irrational tree of serialized elements
 		ElementTree Tree { get; set; }
@@ -16,7 +16,7 @@ namespace SDML.NET
 		void Serialize();
 		void SerializeAsync();
 		// Builds tree from source data
-		void Build(ISDMLDataElement sourceElement);
+		void Build(ISdmlDataElement sourceElement);
 		// Returns whole document as a string
 		string GetData();
     }

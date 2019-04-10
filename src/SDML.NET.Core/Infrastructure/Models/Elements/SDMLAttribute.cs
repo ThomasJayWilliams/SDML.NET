@@ -8,7 +8,7 @@ namespace SDML.NET.Core.Infrastructure.Models
 
 		public SdmlAttribute() : base() { }
 		public SdmlAttribute(string value) : base(value) { }
-		public SdmlAttribute(string value, params ISDMLObject[] elements) : base(value, elements) { }
-		public SdmlAttribute(params ISDMLObject[] elements) : base(elements) { }
+		public SdmlAttribute(string value, params ISdmlObject[] elements) : base(value, elements) { }
+		public SdmlAttribute(params ISdmlObject[] elements) : base(elements) { }
 	}
 }

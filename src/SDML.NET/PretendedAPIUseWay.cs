@@ -5,16 +5,16 @@ namespace SDML.NET
 {
     public class PretendedAPIUseWay
     {
-        public string GetSDML()
+        public string GetSdml()
         {
             var sdmlGen = new SdmlGenerator();
             sdmlGen.Build(new SdmlDocument(
-                new SdmlNameAttribute("SDML.NET Library Description"),
+                new SdmlNameAttribute("Sdml.NET Library Description"),
                 new SdmlSolution(
-                    new SdmlNameAttribute("SDML.NET"),
+                    new SdmlNameAttribute("Sdml.NET"),
                     new SdmlTypeAttribute(".NET Standard Library"),
                     new SdmlProject(
-                        new SdmlNameAttribute("SDML.NET"),
+                        new SdmlNameAttribute("Sdml.NET"),
                         new SdmlClass(
                             new SdmlNameAttribute("InvalidNodeException"),
                             new SdmlMethod(

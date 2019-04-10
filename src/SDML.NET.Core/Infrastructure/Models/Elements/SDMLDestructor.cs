@@ -8,7 +8,7 @@ namespace SDML.NET.Core.Infrastructure.Models
 
         public SdmlDestructor() : base() { }
         public SdmlDestructor(string value) : base(value) { }
-        public SdmlDestructor(string value, params ISDMLObject[] elements) : base(value, elements) { }
-        public SdmlDestructor(params ISDMLObject[] elements) : base(elements) { }
+        public SdmlDestructor(string value, params ISdmlObject[] elements) : base(value, elements) { }
+        public SdmlDestructor(params ISdmlObject[] elements) : base(elements) { }
     }
 }

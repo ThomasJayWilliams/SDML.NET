@@ -3,10 +3,10 @@ using System;
 
 namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-    public abstract class SdmlBaseAttribute : ISDMLAttribute
+    public abstract class SdmlBaseAttribute : ISdmlAttribute
     {
         public string Value { get; set; }
-        public ISDMLDataElement Owner { get; set; }
+        public ISdmlDataElement Owner { get; set; }
         public abstract string ObjectName { get; }
 
         public SdmlBaseAttribute(string value)

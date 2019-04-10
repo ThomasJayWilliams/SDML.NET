@@ -8,7 +8,7 @@ namespace SDML.NET.Core.Infrastructure.Models
 
         public SdmlEnum() : base() { }
         public SdmlEnum(string value) : base(value) { }
-        public SdmlEnum(string value, params ISDMLObject[] elements) : base(value, elements) { }
-        public SdmlEnum(params ISDMLObject[] elements) : base(elements) { }
+        public SdmlEnum(string value, params ISdmlObject[] elements) : base(value, elements) { }
+        public SdmlEnum(params ISdmlObject[] elements) : base(elements) { }
     }
 }

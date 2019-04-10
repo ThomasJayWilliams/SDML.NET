@@ -10,7 +10,7 @@ namespace SDML.NET.Helpers
 		// Converts source data to Renderer.DTO
 		// To convert data uses recursion
 		// Converts elements
-        public static DataElementDTO ToDTO(ISDMLDataElement data)
+        public static DataElementDTO ToDTO(ISdmlDataElement data)
         {
             var dto = new DataElementDTO();
 
@@ -44,7 +44,7 @@ namespace SDML.NET.Helpers
         }
 
 		// Converts attributes
-        public static DataAttributeDTO ToDTO(ISDMLAttribute data, DataElementDTO owner) => 
+        public static DataAttributeDTO ToDTO(ISdmlAttribute data, DataElementDTO owner) => 
             new DataAttributeDTO() { ObjectName = data.ObjectName, Value = data.Value, Owner = owner };
     }
 }

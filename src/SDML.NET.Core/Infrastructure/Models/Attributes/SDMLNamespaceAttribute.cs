@@ -1,9 +1,9 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-	public class SDMLNamespaceAttribute : SDMLBaseAttribute
+	public class SdmlNamespaceAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "Namespace";
 
-		public SDMLNamespaceAttribute(string value) : base(value) { }
+		public SdmlNamespaceAttribute(string value) : base(value) { }
 	}
 }

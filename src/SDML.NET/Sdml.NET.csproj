@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sdml.NET.Core\Sdml.NET.Core.csproj" />
-    <ProjectReference Include="..\Sdml.NET.Renderer\Sdml.NET.Renderer.csproj" />
+    <ProjectReference Include="..\SDML.NET.Core\SDML.NET.Core.csproj" />
+    <ProjectReference Include="..\SDML.NET.Renderer\SDML.NET.Renderer.csproj" />
   </ItemGroup>
 
   <ItemGroup>

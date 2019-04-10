@@ -4,11 +4,11 @@ using SDML.NET.Renderer;
 
 namespace SDML.NET
 {
-    public class SdmlAutoGenerator : ISDMLGenerator
+    public class SdmlAutoGenerator : ISdmlGenerator
     {
         public ElementTree Tree { get; set; }
 
-        public void Build(ISDMLDataElement sourceElement)
+        public void Build(ISdmlDataElement sourceElement)
         {
             
         }

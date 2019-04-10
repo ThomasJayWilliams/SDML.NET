@@ -6,13 +6,13 @@ using System;
 
 namespace SDML.NET
 {
-    public class SdmlGenerator : ISDMLGenerator
+    public class SdmlGenerator : ISdmlGenerator
     {
-        private ISDMLDataElement document { get; set; }
+        private ISdmlDataElement document { get; set; }
 
         public ElementTree Tree { get; set; }
 
-        public void Build(ISDMLDataElement sourceElement)
+        public void Build(ISdmlDataElement sourceElement)
         {
             document = sourceElement ??
                 throw new ArgumentException("Element cannot be null!");

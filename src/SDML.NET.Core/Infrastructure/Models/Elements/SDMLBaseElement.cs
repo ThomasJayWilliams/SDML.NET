@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-    public abstract class SdmlBaseElement : ISDMLDataElement
+    public abstract class SdmlBaseElement : ISdmlDataElement
     {
-        public List<ISDMLAttribute> Attributes { get; } = new List<ISDMLAttribute>();
-        public List<ISDMLDataElement> Childs { get; } = new List<ISDMLDataElement>();
-        public ISDMLDataElement Parent { get; set; }
+        public List<ISdmlAttribute> Attributes { get; } = new List<ISdmlAttribute>();
+        public List<ISdmlDataElement> Childs { get; } = new List<ISdmlDataElement>();
+        public ISdmlDataElement Parent { get; set; }
         public string Value { get; set; }
 
         public abstract string ObjectName { get; }
@@ -22,8 +22,8 @@ namespace SDML.NET.Core.Infrastructure.Models
                 throw new ArgumentException("Value cannot be null or empty!");
             Value = value;
         }
-		// This constructor allows users to insert SDML Element
-        public SdmlBaseElement(string value, params ISDMLObject[] attributes) : this(attributes)
+		// This constructor allows users to insert Sdml Element
+        public SdmlBaseElement(string value, params ISdmlObject[] attributes) : this(attributes)
         {
             if (Childs.Count > 0)
                 throw new InvalidElementDeclarationException("Invalid element formatting! Element cannot hold both childs and value!");
@@ -33,20 +33,20 @@ namespace SDML.NET.Core.Infrastructure.Models
             Value = value;
         }
 
-		// This constructor allows users to insert SDML element, attributes and comments as part of one SDMLObject
-        public SdmlBaseElement(params ISDMLObject[] elements)
+		// This constructor allows users to insert Sdml element, attributes and comments as part of one SdmlObject
+        public SdmlBaseElement(params ISdmlObject[] elements)
         {
             foreach (var item in elements)
             {
                 if (item.GetType().IsSubclassOf(typeof(SdmlBaseAttribute)))
                 {
-                    ((ISDMLAttribute)item).Owner = this;
-                    Attributes.Add(((ISDMLAttribute)item));
+                    ((ISdmlAttribute)item).Owner = this;
+                    Attributes.Add(((ISdmlAttribute)item));
                 }
                 else if (item.GetType().IsSubclassOf(typeof(SdmlBaseElement)))
                 {
-                    ((ISDMLDataElement)item).Parent = this;
-                    Childs.Add((ISDMLDataElement)item);
+                    ((ISdmlDataElement)item).Parent = this;
+                    Childs.Add((ISdmlDataElement)item);
                 }
             }
         }
