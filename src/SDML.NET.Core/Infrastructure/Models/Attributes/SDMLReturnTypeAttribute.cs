@@ -1,9 +1,9 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-	public class SDMLReturnTypeAttribute : SDMLBaseAttribute
+	public class SdmlReturnTypeAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "ReturnType";
 
-		public SDMLReturnTypeAttribute(string value) : base(value) { }
+		public SdmlReturnTypeAttribute(string value) : base(value) { }
 	}
 }

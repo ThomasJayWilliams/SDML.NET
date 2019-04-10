@@ -2,13 +2,13 @@
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-    public class SDMLNamespace : SDMLBaseElement
+    public class SdmlNamespace : SdmlBaseElement
     {
         public override string ObjectName { get; } = "Namespace";
 
-        public SDMLNamespace() : base() { }
-        public SDMLNamespace(string value) : base(value) { }
-        public SDMLNamespace(string value, params ISDMLObject[] elements) : base(value, elements) { }
-        public SDMLNamespace(params ISDMLObject[] elements) : base(elements) { }
+        public SdmlNamespace() : base() { }
+        public SdmlNamespace(string value) : base(value) { }
+        public SdmlNamespace(string value, params ISDMLObject[] elements) : base(value, elements) { }
+        public SdmlNamespace(params ISDMLObject[] elements) : base(elements) { }
     }
 }

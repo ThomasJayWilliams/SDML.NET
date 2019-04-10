@@ -7,21 +7,21 @@ namespace SDML.NET
     {
         public string GetSDML()
         {
-            var sdmlGen = new SDMLGenerator();
-            sdmlGen.Build(new SDMLDocument(
-                new SDMLNameAttribute("SDML.NET Library Description"),
-                new SDMLSolution(
-                    new SDMLNameAttribute("SDML.NET"),
-                    new SDMLTypeAttribute(".NET Standard Library"),
-                    new SDMLProject(
-                        new SDMLNameAttribute("SDML.NET"),
-                        new SDMLClass(
-                            new SDMLNameAttribute("InvalidNodeException"),
-                            new SDMLMethod(
-                                new SDMLNameAttribute("ThisMethodDoesNotEvenExist"),
-                                new SDMLDescription(
+            var sdmlGen = new SdmlGenerator();
+            sdmlGen.Build(new SdmlDocument(
+                new SdmlNameAttribute("SDML.NET Library Description"),
+                new SdmlSolution(
+                    new SdmlNameAttribute("SDML.NET"),
+                    new SdmlTypeAttribute(".NET Standard Library"),
+                    new SdmlProject(
+                        new SdmlNameAttribute("SDML.NET"),
+                        new SdmlClass(
+                            new SdmlNameAttribute("InvalidNodeException"),
+                            new SdmlMethod(
+                                new SdmlNameAttribute("ThisMethodDoesNotEvenExist"),
+                                new SdmlDescription(
                                     "This is some random method. And this is its description.",
-                                    new SDMLNameAttribute("ExampleDescription"))))))));
+                                    new SdmlNameAttribute("ExampleDescription"))))))));
 
             sdmlGen.Serialize();
 

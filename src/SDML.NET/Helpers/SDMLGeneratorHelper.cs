@@ -1,10 +1,11 @@
 ﻿using SDML.NET.Core.Infrastructure.Abstractions;
 using SDML.NET.Renderer.DTOs;
+using System;
 using System.Collections.Generic;
 
 namespace SDML.NET.Helpers
 {
-    public static class SDMLGeneratorHelper
+    public static class SdmlGeneratorHelper
     {
 		// Converts source data to Renderer.DTO
 		// To convert data uses recursion
@@ -35,6 +36,9 @@ namespace SDML.NET.Helpers
                 dto.Childs = childs;
                 dto.Value = data.Value;
             }
+
+            else
+                throw new NullReferenceException("Data element is null!");
 
             return dto;
         }

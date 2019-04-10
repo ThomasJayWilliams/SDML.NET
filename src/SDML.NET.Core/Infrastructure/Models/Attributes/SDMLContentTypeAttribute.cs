@@ -1,10 +1,10 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
 		// Class represents the ContentType Attribute
-	public class SDMLContentTypeAttribute : SDMLBaseAttribute
+	public class SdmlContentTypeAttribute : SDMLBaseAttribute
 	{
 		public override string ObjectName { get; } = "ContentType";
 
-		public SDMLContentTypeAttribute(string value) : base(value) { }
+		public SdmlContentTypeAttribute(string value) : base(value) { }
 	}
 }

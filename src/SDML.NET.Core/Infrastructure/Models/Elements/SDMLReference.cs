@@ -2,13 +2,13 @@
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-    public class SDMLReference : SDMLBaseElement
+    public class SdmlReference : SdmlBaseElement
     {
         public override string ObjectName { get; } = "Reference";
 
-        public SDMLReference() : base() { }
-        public SDMLReference(string value) : base(value) { }
-        public SDMLReference(string value, params ISDMLObject[] elements) : base(value, elements) { }
-        public SDMLReference(params ISDMLObject[] elements) : base(elements) { }
+        public SdmlReference() : base() { }
+        public SdmlReference(string value) : base(value) { }
+        public SdmlReference(string value, params ISDMLObject[] elements) : base(value, elements) { }
+        public SdmlReference(params ISDMLObject[] elements) : base(elements) { }
     }
 }

@@ -2,13 +2,13 @@
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-    public class SDMLProject : SDMLBaseElement
+    public class SdmlProject : SdmlBaseElement
     {
         public override string ObjectName { get; } = "Project";
 
-        public SDMLProject() : base() { }
-        public SDMLProject(string value) : base(value) { }
-        public SDMLProject(string value, params ISDMLObject[] elements) : base(value, elements) { }
-        public SDMLProject(params ISDMLObject[] elements) : base(elements) { }
+        public SdmlProject() : base() { }
+        public SdmlProject(string value) : base(value) { }
+        public SdmlProject(string value, params ISDMLObject[] elements) : base(value, elements) { }
+        public SdmlProject(params ISDMLObject[] elements) : base(elements) { }
     }
 }

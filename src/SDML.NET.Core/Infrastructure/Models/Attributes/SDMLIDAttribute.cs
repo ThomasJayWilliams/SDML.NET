@@ -1,9 +1,9 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-	public class SDMLIDAttribute : SDMLBaseAttribute
+	public class SdmlIDAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "ID";
 
-		public SDMLIDAttribute(string value) : base(value) { }
+		public SdmlIDAttribute(string value) : base(value) { }
 	}
 }

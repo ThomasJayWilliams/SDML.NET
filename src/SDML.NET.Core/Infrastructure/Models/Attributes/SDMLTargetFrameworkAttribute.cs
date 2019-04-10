@@ -1,9 +1,9 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-	public class SDMLTargetFrameworkAttribute : SDMLBaseAttribute
+	public class SdmlTargetFrameworkAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "TargetFramework";
 
-		public SDMLTargetFrameworkAttribute(string value) : base(value) { }
+		public SdmlTargetFrameworkAttribute(string value) : base(value) { }
 	}
 }

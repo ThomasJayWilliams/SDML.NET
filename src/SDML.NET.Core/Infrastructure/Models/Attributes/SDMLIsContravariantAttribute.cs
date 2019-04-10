@@ -1,9 +1,9 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-	public class SDMLIsContravariantAttribute : SDMLBaseAttribute
+	public class SdmlIsContravariantAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "IsContravariant";
 
-		public SDMLIsContravariantAttribute(string value) : base(value) { }
+		public SdmlIsContravariantAttribute(string value) : base(value) { }
 	}
 }

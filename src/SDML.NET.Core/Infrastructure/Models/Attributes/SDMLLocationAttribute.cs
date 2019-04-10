@@ -1,9 +1,9 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-    public class SDMLLocationAttribute : SDMLBaseAttribute
+    public class SdmlLocationAttribute : SdmlBaseAttribute
     {
         public override string ObjectName { get; } = "Location";
 
-        public SDMLLocationAttribute(string value) : base(value) { }
+        public SdmlLocationAttribute(string value) : base(value) { }
     }
 }

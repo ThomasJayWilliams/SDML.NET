@@ -21,7 +21,7 @@ I'm a student master and this is my masters project. Also, I'm not a real progra
 Although I have a job and I cannot spend all my time on it, plus deadline is far away, so I don't have to push myself.
 
 But in spite of this I will be happy to get any help with developing library and standard as well. But, if you want to contribute, please, create another branch with short name of your changes and send me a merge request.
-Also, anticipating questions I want to explain why I started to creating own generator rather then used another, prooven by time generators like LINQ to XML - I've just wanted to create it on my own. This is quite awesome experience and I like to projects like this one.
+Also, anticipating questions I want to explain why I started to creating own generator rather then used another, prooven by time generators like LINQ to XML - I've just wanted to create it on my own. This is quite awesome experience and I like to projects like this one. Besides, later I'm planning to add more tools, like process describing and the XML tools might be not enough to effective implement the these instruments.
 
 As far as that there is no specification for it, I decided to develop library first, and then write specification.
 

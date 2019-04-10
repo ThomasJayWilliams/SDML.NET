@@ -38,7 +38,7 @@ namespace SDML.NET.Renderer
                 throw new ArgumentException("Render options are invalid!");
         }
 
-        internal static string Render(SDMLTag element, RenderOptions options, RenderAccumulator acc)
+        internal static string Render(SdmlTag element, RenderOptions options, RenderAccumulator acc)
         {
 			IRenderer renderer;
 

@@ -2,13 +2,13 @@
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-    public class SDMLDelegate : SDMLBaseElement
+    public class SdmlDelegate : SdmlBaseElement
     {
         public override string ObjectName { get; } = "Delegate";
 
-        public SDMLDelegate() : base() { }
-        public SDMLDelegate(string value) : base(value) { }
-        public SDMLDelegate(string value, params ISDMLObject[] elements) : base(value, elements) { }
-        public SDMLDelegate(params ISDMLObject[] elements) : base(elements) { }
+        public SdmlDelegate() : base() { }
+        public SdmlDelegate(string value) : base(value) { }
+        public SdmlDelegate(string value, params ISDMLObject[] elements) : base(value, elements) { }
+        public SdmlDelegate(params ISDMLObject[] elements) : base(elements) { }
     }
 }

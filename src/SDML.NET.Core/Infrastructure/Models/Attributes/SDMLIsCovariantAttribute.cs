@@ -1,9 +1,9 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-	public class SDMLIsCovariantAttribute : SDMLBaseAttribute
+	public class SdmlIsCovariantAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "IsCovariant";
 
-		public SDMLIsCovariantAttribute(string value) : base(value) { }
+		public SdmlIsCovariantAttribute(string value) : base(value) { }
 	}
 }
