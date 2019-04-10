@@ -1,5 +1,4 @@
-﻿using SDML.NET.Renderer.DataStructures;
-using SDML.NET.Renderer.DTOs;
+﻿using SDML.NET.Renderer.DTOs;
 using SDML.NET.Renderer.VisualComponents;
 using System;
 using System.Linq;

@@ -1,5 +1,5 @@
 ﻿using SDML.NET.Core;
-using SDML.NET.Renderer.DataStructures;
+using SDML.NET.Renderer;
 using System.Threading.Tasks;
 
 namespace SDML.NET

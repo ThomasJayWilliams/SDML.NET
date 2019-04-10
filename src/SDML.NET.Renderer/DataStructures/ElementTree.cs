@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace SDML.NET.Renderer.DataStructures
+namespace SDML.NET.Renderer
 {
 	// This structure represents irrational tree of Sdml tags
     public class ElementTree

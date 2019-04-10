@@ -1,11 +1,10 @@
-﻿using SDML.NET.Renderer.DataStructures;
+﻿using SDML.NET.Core;
 using SDML.NET.Renderer;
 using System.Threading.Tasks;
-using SDML.NET.Core;
 
 namespace SDML.NET
 {
-    public class SdmlAutoGenerator : ISdmlGenerator
+    internal class SdmlAutoGenerator : ISdmlGenerator
     {
         public ElementTree Tree { get; set; }
 

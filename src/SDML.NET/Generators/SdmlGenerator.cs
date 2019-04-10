@@ -1,14 +1,13 @@
 ﻿using SDML.NET.Core;
 using SDML.NET.Helpers;
 using SDML.NET.Renderer;
-using SDML.NET.Renderer.DataStructures;
 using System;
 using System.IO;
 using System.Threading.Tasks;
 
 namespace SDML.NET
 {
-    public class SdmlGenerator : ISdmlGenerator
+    internal class SdmlGenerator : ISdmlGenerator
     {
         private ISdmlDataElement document { get; set; }
 

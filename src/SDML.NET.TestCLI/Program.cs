@@ -8,15 +8,12 @@ namespace SDML.NET.TestCLI
     {
         static void Main(string[] args)
         {
-            var markup = GetSdml();
-            Console.WriteLine(markup);
-            Console.ReadLine();
+            GetSdml();
         }
 
-        public static string GetSdml()
+        public static void GetSdml()
         {
-            var sdmlGen = new SdmlGenerator();
-            sdmlGen.Build(new SdmlDocument(
+            var data = new SdmlDocument(
                 new SdmlNameAttribute("Sdml.NET Library Description"),
                 new SdmlSolution(
                     new SdmlNameAttribute("Sdml.NET"),
@@ -29,12 +26,10 @@ namespace SDML.NET.TestCLI
                                 new SdmlNameAttribute("ThisMethodDoesNotEvenExist"),
                                 new SdmlDescription(
                                     "This is some random method. And this is its description.",
-                                    new SdmlNameAttribute("ExampleDescription"))))))));
+                                    new SdmlNameAttribute("ExampleDescription")))))));
 
-            sdmlGen.Serialize();
-            sdmlGen.Save("C:/testExport.sdml");
-
-            return sdmlGen.Tree.Root.Data;
+            var serializer = new SdmlSerializer();
+            Console.WriteLine(serializer.Serialize(data));
         }
     }
 }

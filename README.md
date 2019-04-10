@@ -83,21 +83,24 @@ Currently SDML.NET supports the following generation mechanic:
 
 SDML.NET/PretendedAPIUserWay.cs
 ```cs
-var sdmlGen = new SDMLGenerator();
-sdmlGen.Build(new SDMLDocument(
-    new SDMLNameAttribute("SDML.NET Library Description"),
-    new SDMLSolution(
-        new SDMLNameAttribute("SDML.NET"),
-        new SDMLTypeAttribute(".NET Standard Library"),
-        new SDMLProject(
-            new SDMLNameAttribute("SDML.NET"),
-            new SDMLClass(
-                new SDMLNameAttribute("InvalidNodeException"),
-                new SDMLMethod(
-                    new SDMLNameAttribute("ThisMethodDoesNotEvenExist"),
-                    new SDMLDescription(
-                        "This is some random method. And this is its description.",
-                        new SDMLNameAttribute("ExampleDescription"))))))));
+public static void GetSdml()
+{
+    var data = new SdmlDocument(
+        new SdmlNameAttribute("Sdml.NET Library Description"),
+        new SdmlSolution(
+            new SdmlNameAttribute("Sdml.NET"),
+            new SdmlTypeAttribute(".NET Standard Library"),
+            new SdmlProject(
+                new SdmlNameAttribute("Sdml.NET"),
+                new SdmlClass(
+                    new SdmlNameAttribute("InvalidNodeException"),
+                    new SdmlMethod(
+                        new SdmlNameAttribute("ThisMethodDoesNotEvenExist"),
+                        new SdmlDescription(
+                            "This is some random method. And this is its description.",
+                            new SdmlNameAttribute("ExampleDescription")))))));
 
-return sdmlGen.Serialize();
+    var serializer = new SdmlSerializer();
+    Console.WriteLine(serializer.Serialize(data));
+}
 ```
