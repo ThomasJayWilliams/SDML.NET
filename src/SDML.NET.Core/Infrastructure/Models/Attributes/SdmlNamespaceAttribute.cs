@@ -1,4 +1,4 @@
-﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
+﻿namespace SDML.NET.Core.Attributes
 {
 	public class SdmlNamespaceAttribute : SdmlBaseAttribute
 	{

@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SDML.NET.Core\SDML.NET.Core.csproj" />
     <ProjectReference Include="..\SDML.NET\SDML.NET.csproj" />
   </ItemGroup>
 

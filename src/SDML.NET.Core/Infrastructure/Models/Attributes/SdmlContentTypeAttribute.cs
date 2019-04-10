@@ -1,6 +1,6 @@
-﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
+﻿namespace SDML.NET.Core.Attributes
 {
-		// Class represents the ContentType Attribute
+	// Class represents the ContentType Attribute
 	public class SdmlContentTypeAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "ContentType";

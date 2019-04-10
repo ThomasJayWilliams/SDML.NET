@@ -1,6 +1,6 @@
-﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
+﻿namespace SDML.NET.Core.Attributes
 {
-		//Class to mark IsAysnc Object value
+	//Class to mark IsAysnc Object value
 	public class SdmlIsAsyncAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "IsAsync";

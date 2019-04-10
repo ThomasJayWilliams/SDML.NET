@@ -1,6 +1,4 @@
-﻿using SDML.NET.Core.Infrastructure.Abstractions;
-
-namespace SDML.NET.Core.Infrastructure.Models
+﻿namespace SDML.NET.Core.Comments
 {
     public class SdmlComment : ISdmlComment
     {

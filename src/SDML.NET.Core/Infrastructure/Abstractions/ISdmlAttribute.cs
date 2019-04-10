@@ -1,4 +1,4 @@
-﻿namespace SDML.NET.Core.Infrastructure.Abstractions
+﻿namespace SDML.NET.Core
 {
 	// Represents SdmlAttribute
 	public interface ISdmlAttribute : ISdmlObject

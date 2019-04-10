@@ -1,9 +1,8 @@
-﻿using SDML.NET.Core.Infrastructure.Abstractions;
-using SDML.NET.Core.Infrastructure.Models.Attributes;
+﻿using SDML.NET.Core.Attributes;
 using System;
 using System.Collections.Generic;
 
-namespace SDML.NET.Core.Infrastructure.Models
+namespace SDML.NET.Core.Elements
 {
     public abstract class SdmlBaseElement : ISdmlDataElement
     {

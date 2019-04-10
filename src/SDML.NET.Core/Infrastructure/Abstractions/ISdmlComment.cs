@@ -1,4 +1,4 @@
-﻿namespace SDML.NET.Core.Infrastructure.Abstractions
+﻿namespace SDML.NET.Core
 {
 	// Represents commentary element
 	public interface ISdmlComment : ISdmlObject { }

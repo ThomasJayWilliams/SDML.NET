@@ -1,6 +1,6 @@
-﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
+﻿namespace SDML.NET.Core.Attributes
 {
-		//Class to mark the IsAbstract Value
+	//Class to mark the IsAbstract Value
 	public class SdmlIsAbstractAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "IsAbstract";

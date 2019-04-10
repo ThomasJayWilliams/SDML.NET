@@ -1,7 +1,6 @@
-﻿using SDML.NET.Core.Infrastructure.Abstractions;
-using System;
+﻿using System;
 
-namespace SDML.NET.Core.Infrastructure.Models.Attributes
+namespace SDML.NET.Core.Attributes
 {
     public abstract class SdmlBaseAttribute : ISdmlAttribute
     {

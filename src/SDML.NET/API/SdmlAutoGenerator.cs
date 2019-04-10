@@ -1,7 +1,7 @@
-﻿using SDML.NET.Core.Infrastructure.Abstractions;
-using SDML.NET.Renderer.DataStructures;
+﻿using SDML.NET.Renderer.DataStructures;
 using SDML.NET.Renderer;
 using System.Threading.Tasks;
+using SDML.NET.Core;
 
 namespace SDML.NET
 {

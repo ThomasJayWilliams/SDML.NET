@@ -1,11 +1,11 @@
-﻿using SDML.NET.Core.Infrastructure.Abstractions;
+﻿using SDML.NET.Core;
 using SDML.NET.Renderer.DataStructures;
 using System.Threading.Tasks;
 
 namespace SDML.NET
 {
 	// Represents main API of Sdml.NET - generate and parse data
-	public interface ISdmlGenerator
+	internal interface ISdmlGenerator
 	{
 		// Irrational tree of serialized elements
 		ElementTree Tree { get; set; }

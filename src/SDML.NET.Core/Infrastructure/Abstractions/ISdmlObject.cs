@@ -1,4 +1,4 @@
-﻿namespace SDML.NET.Core.Infrastructure.Abstractions
+﻿namespace SDML.NET.Core
 {
 	// Base object of all Sdml... suddenly objects
     public interface ISdmlObject
