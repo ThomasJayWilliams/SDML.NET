@@ -79,8 +79,10 @@ SDML.NET/docs/examples/example.sdml
 ```
 
 
+
 Currently SDML.NET supports the following generation mechanic:
-SDML.NETTestCLI.Program.cs
+
+SDML.NET.TestCLI.Program.cs
 ```cs
 public static void GetSdml()
 {
