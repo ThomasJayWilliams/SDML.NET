@@ -80,8 +80,7 @@ SDML.NET/docs/examples/example.sdml
 
 
 Currently SDML.NET supports the following generation mechanic:
-
-SDML.NET/PretendedAPIUserWay.cs
+SDML.NETTestCLI.Program.cs
 ```cs
 public static void GetSdml()
 {
