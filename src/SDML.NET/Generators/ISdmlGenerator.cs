@@ -9,10 +9,6 @@ namespace SDML.NET
 	{
 		// Irrational tree of serialized elements
 		ElementTree Tree { get; set; }
-
-		// Saves output string into file on disk
-		bool Save(string path);
-		Task<bool> SaveAsync(string path);
 		// Parses data from into string data
 		void Serialize();
 		void SerializeAsync();

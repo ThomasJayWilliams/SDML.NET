@@ -5,6 +5,8 @@ namespace SDML.NET
 {
     public class SdmlSerializer : ISdmlTool
     {
+        public string Data { get; private set; }
+
         public string Serialize(ISdmlDataElement data)
         {
             if (data == null)
@@ -13,7 +15,10 @@ namespace SDML.NET
             var generator = new SdmlGenerator();
             generator.Build(data);
             generator.Serialize();
-            return generator.GetData();
+
+            Data = generator.GetData();
+
+            return Data;
         }
     }
 }

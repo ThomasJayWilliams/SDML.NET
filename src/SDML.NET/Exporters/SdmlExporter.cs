@@ -2,7 +2,7 @@
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SDML.NET.Exporters
+namespace SDML.NET
 {
 	public static class SdmlExporter
 	{

@@ -9,12 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SDML.NET.Core\SDML.NET.Core.csproj" />
-    <ProjectReference Include="..\SDML.NET.Renderer\SDML.NET.Renderer.csproj" />
+    <Folder Include="Attributes\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Attributes\" />
+    <ProjectReference Include="..\SDML.NET.Core\SDML.NET.Core.csproj" />
+    <ProjectReference Include="..\SDML.NET.Renderer\SDML.NET.Renderer.csproj" />
   </ItemGroup>
 
 </Project>
