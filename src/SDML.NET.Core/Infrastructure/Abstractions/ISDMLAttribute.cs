@@ -1,6 +1,6 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Abstractions
 {
-	// Represents SDMLAttribute
+	// Represents SdmlAttribute
 	public interface ISDMLAttribute : ISDMLObject
 	{
 		// Element, that contains current attribute

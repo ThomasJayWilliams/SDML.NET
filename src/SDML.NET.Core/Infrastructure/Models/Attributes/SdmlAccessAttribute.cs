@@ -1,6 +1,6 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-    public class SdmlccessAttribute : SdmlBaseAttribute
+    public class SdmlAccessAttribute : SdmlBaseAttribute
     {
         public override string ObjectName { get; } = "Access";
 

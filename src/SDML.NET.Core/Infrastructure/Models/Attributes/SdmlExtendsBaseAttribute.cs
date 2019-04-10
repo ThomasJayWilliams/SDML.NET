@@ -1,6 +1,6 @@
 ﻿namespace SDML.NET.Core.Infrastructure.Models.Attributes
 {
-	public class SdmlExtendsBaseAttribute : SDMLBaseAttribute
+	public class SdmlExtendsBaseAttribute : SdmlBaseAttribute
 	{
 		public override string ObjectName { get; } = "ExtendsBase";
 

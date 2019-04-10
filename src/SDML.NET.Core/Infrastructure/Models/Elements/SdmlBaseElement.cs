@@ -22,7 +22,7 @@ namespace SDML.NET.Core.Infrastructure.Models
                 throw new ArgumentException("Value cannot be null or empty!");
             Value = value;
         }
-		// This constructor allows users to insert SDML Element
+		// This constructor allows users to insert Sdml Element
         public SdmlBaseElement(string value, params ISDMLObject[] attributes) : this(attributes)
         {
             if (Childs.Count > 0)
@@ -33,7 +33,7 @@ namespace SDML.NET.Core.Infrastructure.Models
             Value = value;
         }
 
-		// This constructor allows users to insert SDML element, attributes and comments as part of one SDMLObject
+		// This constructor allows users to insert Sdml element, attributes and comments as part of one SdmlObject
         public SdmlBaseElement(params ISDMLObject[] elements)
         {
             foreach (var item in elements)

@@ -2,13 +2,13 @@
 
 namespace SDML.NET.Core.Infrastructure.Models
 {
-    public class SDMLConstructor : SDMLBaseElement
+    public class SdmlConstructor : SdmlBaseElement
     {
         public override string ObjectName { get; } = "Constructor";
 
-        public SDMLConstructor() : base() { }
-        public SDMLConstructor(string value) : base(value) { }
-        public SDMLConstructor(string value, params ISDMLObject[] elements) : base(value, elements) { }
-        public SDMLConstructor(params ISDMLObject[] elements) : base(elements) { }
+        public SdmlConstructor() : base() { }
+        public SdmlConstructor(string value) : base(value) { }
+        public SdmlConstructor(string value, params ISDMLObject[] elements) : base(value, elements) { }
+        public SdmlConstructor(params ISDMLObject[] elements) : base(elements) { }
     }
 }
