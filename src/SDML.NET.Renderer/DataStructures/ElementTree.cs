@@ -36,6 +36,37 @@ namespace SDML.NET.Renderer
             if (Root == null)
                 Root = node;
         }
+
+        public void Create()
+        {
+            
+        }
+
+        //searches for the node in the list by id and stores it in the result, would need to send it out the result though
+        public void Read(ElementNode node)
+        {
+            if (node != null)
+            {
+                ElementNode result = elements.Find(o => o.Id == node.Id);
+            }
+        }
+
+        //searches for the index of the item using the id of the node, and updates the node at index
+        public void Update(ElementNode node)
+        {
+            if (node != null)
+            {
+                int index = elements.FindIndex(o => o.Id == node.Id);
+                elements[index] = node;
+            }
+        }
+
+        //using remove function of list to delete a node by matching ids
+        public void Delete(ElementNode node)
+        {
+            if (node != null)
+                elements.Remove(new ElementNode() { Id = node.Id });
+        }
     }
 
     public class ElementNode
@@ -44,6 +75,7 @@ namespace SDML.NET.Renderer
         public SdmlTag Parent { get; set; }
         public List<ElementNode> Childs { get; set; }
         public string Data { get; set; }
+        public int Id { get; set; }
 
         public ElementNode()
         {
