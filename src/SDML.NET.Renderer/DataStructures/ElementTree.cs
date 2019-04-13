@@ -1,6 +1,8 @@
 ﻿using SDML.NET.Renderer.VisualComponents;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace SDML.NET.Renderer
 {
@@ -37,24 +39,12 @@ namespace SDML.NET.Renderer
                 Root = node;
         }
 
-        //wasn't too sure about this but something like a constructor
-        public void Create()
-        {
-            ElementNode node = new ElementNode();
-            node.Childs = null;
-            node.Parent = null;
-            node.Element = null;
-            node.Data = null;
-            node.Id = null;
-        }
-
         //searches for the node in the list by id and stores it in the result, would need to send it out the result though
-        public void Read(ElementNode node)
+        public ElementNode Read(int id)
         {
-            if (node != null)
-            {
-                ElementNode result = elements.Find(o => o.Id == node.Id);
-            }
+			if (id > 0)
+				return Elements.FirstOrDefault(e => e.Id == id);
+			throw new ArgumentException("Element Id cannot be less then zero or be equal to zero!");
         }
 
         //searches for the index of the item using the id of the node, and updates the node at index
@@ -63,16 +53,37 @@ namespace SDML.NET.Renderer
             if (node != null)
             {
                 int index = elements.FindIndex(o => o.Id == node.Id);
-                elements[index] = node;
+				elements[index].Childs = node.Childs;
+				elements[index].Data = node.Data;
+				elements[index].Element = node.Element;
+				elements[index].Parent = node.Parent;
             }
+			throw new ArgumentException("Element cannot be null!");
         }
 
         //using remove function of list to delete a node by matching ids
-        public void Delete(ElementNode node)
+        public void Delete(int id)
         {
-            if (node != null)
-                elements.Remove(new ElementNode() { Id = node.Id });
+			if (id > 0)
+			{
+				var element = elements.FirstOrDefault(e => e.Id == id);
+
+				if (element == null)
+					throw new ElementNotFoundException("Element with this id does not exist!");
+
+				Delete(element);
+			}
+
+			throw new ArgumentException("Element id must be greater then zero!");
         }
+
+		public void Delete(ElementNode element)
+		{
+			if (element == null)
+				throw new ArgumentException("Element cannot be null!");
+
+			elements.Remove(element);
+		}
     }
 
     public class ElementNode
