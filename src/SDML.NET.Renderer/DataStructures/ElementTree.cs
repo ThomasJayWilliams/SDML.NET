@@ -37,9 +37,15 @@ namespace SDML.NET.Renderer
                 Root = node;
         }
 
+        //wasn't too sure about this but something like a constructor
         public void Create()
         {
-            
+            ElementNode node = new ElementNode();
+            node.Childs = null;
+            node.Parent = null;
+            node.Element = null;
+            node.Data = null;
+            node.Id = null;
         }
 
         //searches for the node in the list by id and stores it in the result, would need to send it out the result though
