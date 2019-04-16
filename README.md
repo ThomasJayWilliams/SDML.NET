@@ -1,6 +1,9 @@
 # SDML.NET
 
 
+# WARNING
+Currently the project is frozen! All contribution will not declined.
+
 SDML.NET is an open source library, based on .NET Standard platform.
 
 SDML (Solution Description Markup Language) provides bunch of elements and attributes, which will help developers describe their solutions up to details, like methods parameters, types of properties, references, hierarchy of inheriting and so on. It will generate SDML documents, based on input data. Also, it will be able to generate SDML data automatically by using .NET reflection mechanismes.
